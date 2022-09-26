@@ -1,0 +1,689 @@
+:: StoryTitle
+Mysteries of the City
+
+
+:: StoryData
+{
+	"ifid": "FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "MC-12",
+	"zoom": 0.6
+}
+
+
+:: Story Stylesheet [stylesheet]
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+
+/* GENERICS */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* Mostly equivalates to 10px but allows users accessibility zoom settings to work*/
+  /* font-size: 10px; */
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-size: 10px;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Try to keep your margins going in one direction to avoid margin collapase or grounding. I switch all the top margins off to avoid this issue. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+blockquote,
+address,
+article,
+aside,
+details,
+dialogue,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+header,
+hr,
+main,
+nav,
+pre,
+section,
+table,
+p {
+  margin-top: 0;
+  margin-block-start: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* You MUST make sure that links stand out from nomal text though...*/
+}
+
+
+img {
+  /* This means that it can be less than 100% of the width of its parent IF the image is INTRINSICALLY smaller */
+  max-width: 100%;
+
+  height: auto;
+  /* 'auto' is the initial value for height BUT for images (and other elements which have an intrinic height) that is not the case. To make an image responsive you set one dimension (usually width) to [max-]width: 100%; and the other to 'auto' to ensure it keeps aspect ratio. 'auto' basically tells the browser to decide. */
+  vertical-align: middle;
+  /* minor vertical centering. Works for images IF there is a baseline (i.e. they are displayed inline or inline-block) */
+}
+
+/* Because we us <ul>s for lists that we don't always want bulletted. */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* To make actual bulletted lists */
+ul.typographic {
+  list-style: initial;
+  padding-inline-start: 20px;
+}
+
+/* stops icons being the target of JS click events */
+a.btn *,
+button * {
+  pointer-events: null;
+}
+
+/* For 'accessibility text'. If your button only has an image inside it that isn't good for accessibility. Put a span inside there and give it this class and put some descriptive text for what the button does into the span. */
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  clip-path: auto;
+  -webkit-clip-path: auto;
+  white-space: normal;
+}
+
+/* GET RID OF TWINE STYLES */
+#story{
+  margin:0
+}
+
+#passages {
+	max-width: 100%;
+
+}
+
+#story a.link-external:after {
+	content: "";
+}
+
+button{
+    background-color: transparent;
+    border: #fff 1px solid;
+    border-radius: 3px;
+}
+
+button:hover{
+	background-color:#cf1b98;
+	border: #fff 1px solid;
+	color: #fff;
+}
+
+a {
+  color: #f2647d;
+}
+
+a:active {
+  background-color: #f2647d;
+}
+
+a:hover {
+  color: #fff;
+}
+
+#story a.link-external:after {
+	content: "";
+}
+
+#story {
+	margin: 0
+}
+
+/* GENERAL STYLES */
+body{
+  font-size: 1.6rem;
+  font-family: "Space Grotesk";
+  overflow:scroll;
+  background:#000;
+  /* padding: 1.5rem */
+  display:flex;
+  flex-direction: column
+}
+
+header{
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+    padding: 2rem
+}
+
+main{
+   padding: 2rem;
+   margin-block-end: 4rem
+}
+
+footer{
+   display:flex;
+  justify-content: space-between;
+  align-items: flex-end; 
+  position:fixed;
+  bottom: 0;
+  padding: 2rem;
+  width: 100%;
+  background-color: #000
+}
+
+nav{
+  display:flex;
+    justify-content: space-between;
+}
+
+.nav-wrapper{
+display:flex;
+  flex-direction:column;
+align-items: flex-start
+}
+
+.nav-wrapper:last-child{
+align-items: flex-end
+}
+
+.nav-item{
+  margin-block-end: 1.5rem
+}
+
+.nav-item:last-child{
+  margin-block-end: 0
+}
+
+
+.nav-wrapper:last-child{
+display:flex;
+align-items: flex-end
+}
+
+.menu-wrapper{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-wrapper > button{
+margin-inline-end: 10px;
+margin-block-end: 10px
+}
+
+.door-container{
+  display:flex;
+  flex-direction: row;
+justify-content: space-around;
+  align-items:center;
+  text-align: right;
+}
+
+.door-item{
+  display:flex;
+  flex-direction:column
+}
+
+.door-item > button > img {
+  max-width: 7rem
+}
+
+.door-item > span {
+  text-align: center
+}
+
+textarea{
+  min-width: 60vw
+}
+
+.wordcontainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.letter-item > input[type=text]{
+    min-width: 2em;
+  	max-width: 2em;
+  	margin-inline-end:10px;
+}
+
+.letter-item > .correct-letter{
+  min-width: 2em;
+  	max-width: 2em;
+  	margin-inline-end:10px;
+}
+
+.detector{
+ width: 50%;
+}
+
+.spinning{
+
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+  /* transform: rotate(3deg); */
+   /* transform: rotate(0.3rad);/ */
+   /* transform: rotate(3grad); */ 
+   /* transform: rotate(.03turn);  */
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+/* MAP */
+	.map{
+width: 100%;
+    height: 60vh;
+    border: 0;
+    margin: auto;
+    }
+
+
+.directions-card {
+    display: none!important
+}
+
+@media screen and (min-width: 450px) {
+.map{
+	max-width:60vw;
+	height:50vh;
+	border:0
+}
+}
+
+
+:: Story JavaScript [script]
+$('#ui-bar').remove();
+$(document.head).find('#style-ui-bar').remove();
+// TYPEWRITER FN
+!function() {
+    postrender.typewriter = function (b) {
+        if (this.tags) {
+            var r = new RegExp("t8n.typewriter.([0-9]+)(?:[^0-9]|$)","g");
+            var t = r.exec(this.tags.toString());
+            if (t) {
+                typeout(b, t[1]+0);
+            }
+        }
+        return b;
+    };
+    var typeout = function(c,t) {
+        var Furl = function(current) {
+            this.n = current;
+            this.out = false;
+            this.data = current.nodeValue;
+            current.nodeValue = "";
+            this.kids = [];
+            var cn = current.childNodes;
+            if (current.style && current.style.display=="none") {
+                return;
+            }
+            while (cn.length>0) {
+                var f = new Furl(cn[0]);
+                current.removeChild(cn[0]);
+                f.out = true;this.kids.push(f);
+            }
+        };
+        var nodes = new Furl(c);
+        var unfurl = function(furled,d) {
+            var n = furled.n;
+            if (furled.out) {
+                d.appendChild(n);
+                furled.out = false;
+            }
+            if (furled.data) {
+                n.nodeValue += furled.data[0];
+                furled.data = furled.data.slice(1);
+                return true;
+            }
+            for (var j=0; j<furled.kids.length; j++) {
+                var ret = unfurl(furled.kids[j],n);
+                if (ret) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        var title = passage();
+        var intr = setInterval (
+            function() {
+                if (passage() == title && unfurl(nodes,null)) {
+                    return;
+                }
+                clearInterval(intr);
+            }
+        ,t);
+    };
+}();
+
+// MAKE MAP FUNCTION
+
+setup.generateDirectionsMap = function (latorg, longorg, latdest, longdest){
+const iFrame = document.createElement("iframe")
+iFrame.classList.add("map")
+iFrame.setAttribute("loading", "lazy")
+iFrame.setAttribute("referrerpolicy", "no-referrer-when-downgrade")
+// iFrame.setAttribute("allowfullscreen")
+iFrame.setAttribute("src", `https://www.google.com/maps/embed/v1/directions?key=AIzaSyBDRwRTMpSybNcmgkYVX1yZ0YmBbNhs9qU&center=${latorg},${longorg}&zoom=17&origin=${latorg},${longorg}&destination=${latdest},${longdest}&mode=walking`)
+const mount = document.getElementById("mapMount")
+return iFrame
+}
+
+//Get random 5 letter word
+
+setup.generate5LetterCode = () => {
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let word = ""
+for (let i =0 ; i < 5 ; i++){
+word += alphabet[Math.round((alphabet.length-1)*Math.random())];
+}
+  return word;
+}
+
+//Check if an array contains multiple instances of an element
+
+setup.checkForRepeats = (array,element) => {
+ const arrayCopy = [...array];
+ const duplicates = arrayCopy.filter((item, index) => index !== arrayCopy.indexOf(item));
+ return duplicates.contains(element)
+}
+
+
+:: StoryInit {"position":"100,100","size":"100,100"}
+<<cacheaudio "badjoke" "https://youhavefoundconey.net/CG/what/assets/audio/badjoke.mp3">>
+<<waitforaudio>>
+
+
+:: header {"position":"100,225","size":"100,100"}
+<header>Adventure Functionality /
+ Structure Template</header>
+
+
+:: footer {"position":"100,375","size":"100,100"}
+<footer><div class="nav-wrapper "><div class="nav-item"><<button "Replay">><<goto $passage>><</button>> </div><div class="nav-item"><<button "Back">><<goto $prevpass>><</button>></div></div><div class="nav-wrapper"><div class="nav-item"><<button "I'm lost">><<goto "lost">><</button>></div></div></footer>
+
+
+:: lost {"position":"450,50","size":"100,100"}
+<<set $passage to "lost">><<include "header">>
+<main>
+Sorry to hear that you're lost! 
+You have two options:
+
+<<button "Begin the adventure again">><<goto "landing">><</button>>
+
+<<button "Take me straight to the end location!">><<goto "end">><</button>>
+</main>
+<<include "footer">>
+
+
+:: landing {"position":"450,50","size":"100,100"}
+<<set $passage to "landing">>
+<<include "header">>
+<main>
+  menu
+
+
+ <<button "start">><<set $prevpass to $passage>><<goto "MC-05">><</button>>
+ 
+
+</main>
+<<include "footer">>
+
+
+:: MC-05 {"position":"450,225","size":"100,100"}
+<<set $passage to "MC-06">>
+<<include "header">>
+<main>
+
+‘Ello there! Nice to see some fellow navvies round these parts - I’m normally down in
+Cheapside, so friendly faces in other parts of the city are a welcome sight. My name’s Eddie, though today you could call me anything you fancy and I’ll still have a smile plastered on.
+You’ve caught me celebrating today!
+
+I’m round here to meet Stony Jack, you see. Got quite the items. What’s the business with the blank faces? You must know Jack - a navvy can’t find anything interesting on a building site without Jack cropping up, ready to buy it off ‘em. Suppose you mustn’t have been as lucky as me and the lads down near Friday Street if you don’t know Jack - fingers crossed you have reason to visit him soon!
+
+
+<<timed 10s>><<set $prevpass to $passage>><<goto "MC-06">><</timed>>
+
+
+
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-06 {"position":"450,350","size":"100,100"}
+<<set $passage to "MC-05">>
+<<include "header">>
+<main>
+
+The stuff we’ve found - it’s as much like buried treasure as any pirate story you could tell me!
+‘Dig right now, haul it up, that’s how we have such good luck!’ As we always say!
+
+Why don’t you come with - the more the merrier, and truth be told I’ll be glad of a few other navvies with me, for protection, you understand. Picked up whatever we could from the...no better words for it than treasure chest, really - and stuffed it in our pockets. Might have to be clever with where we go to shake off anyone who fancies their chance at making off with any of it.
+
+I can trust you, right?
+
+<<button "Of course">><<set $prevpass to $passage>><<goto "MC-07A">><</button>>
+
+<<button "What's in it for us?">><<set $prevpass to $passage>><<goto "MC-07B">><</button>>
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-07A {"position":"350,500","size":"100,100"}
+<<set $passage to "MC-07A">>
+<<include "header">>
+<main>
+
+Never any doubt about it! Don’t want to keep Jack waiting - let’s make off to
+Cloth Fair. And keep an eye out for anyone suspicious looking.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-08">><</button>>
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-07B {"position":"550,500","size":"100,100"}
+<<set $passage to "MC-07B">>
+<<include "header">>
+<main>
+
+That’s the spirit! I’m not above sharing out some of my luck - head towards Cloth Fair for now, I’m sure we can come to an agreement. Just keep an eye out for anyone suspicious looking.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-08">><</button>>
+
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-08 {"position":"450,625","size":"100,100"}
+<<set $passage to "MC-08">>
+<<include "header">>
+<main>
+
+Bit more private here, that’s more like it. Oi, see that fancy red and gold sign on the churchyard railings - that’s my treasure and I’m buying it here, haha! Laden with the stuff today! Right, I suppose blank faces is going to be a bit of a habit with us. You’ve never played ‘that’s my treasure?’ You Smithfield Navvies don’t know how to have fun - right, here’s how you play. Whenever you clock something that you like the look of - something hanging in a shop window, flash door knocker that’s older than your nan, a fancy hat someone’s got on - you point at it, say ‘that’s my treasure and I’m burying it here’, then point at where you’re standing.
+
+As you go, you get a nice little collection. Oh, but each time you’ve got to say where all your treasure’s buried - ‘that’s my treasure and I’m burying it here, as well as the swanky teapot round the corner’, like that. No point burying treasure if you don’t know where to find it! Then once you get to where you’re going, you go over what each of you’s got and see who’s got the best lot of treasure.
+
+
+<<timed 10s>><<set $prevpass to $passage>><<goto "MC-09">><</timed>>
+
+
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-09 {"position":"450,750","size":"100,100"}
+<<set $passage to "MC-09">>
+<<include "header">>
+<main>
+
+I’m sure you’d like to know more about the treasure stuffed in my pockets right now - I don’t know if I should round here. I’ll say for now - hundreds of years old, we’re talking. Not a few years. 1600s stuff. One six oh oh. I’m going to get over a hundred pounds from Jack for this - a hundred pounds! It’d take over a year’s honest work to see that much money - right, right down here - right as in ‘let’s get to it’ and right as in take a right when you get to Kinghorn Street.
+Keep your eyes out for your own treasure, remember!
+
+Fine, alright, you’ve twisted my arm, I’ll tell you what we found - you know they’re already calling it The Cheapside Hoard. Have to use a word like ‘hoard’, it was so much stuff. The kind of things you wouldn’t believe - I’ll show you. 
+
+Which of these things do you think wasn’t in there?
+
+<<button "A cameo of Queen Elizabeth">><<set $prevpass to $passage>><<goto "MC-10B">><</button>>
+<<button "A fossilised fish tooth">><<set $prevpass to $passage>><<goto "MC-10B">><</button>>
+<<button "A jewel-encrusted hair pin in the shape of a crown">><<set $prevpass to $passage>><<goto "MC-10A">><</button>>
+<<button "A pocket watch made from a single emerald">><<set $prevpass to $passage>><<goto "MC-10B">><</button>>
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-10A {"position":"350,900","size":"100,100"}
+<<set $passage to "MC-10A">>
+<<include "header">>
+<main>
+
+You’ve got a smart eye! But that’s not even the beginning of it - diamonds and rubies and all sorts of gems and jewellery and trinkets. All just there as we dug down.
+
+
+<<timed 10s>><<set $prevpass to $passage>><<goto "MC-11">><</timed>>
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-10B {"position":"550,900","size":"100,100"}
+<<set $passage to "MC-10B">>
+<<include "header">>
+<main>
+
+Ha! I’ve got you - I didn’t see any fancy crown-shaped-hair pins, but turns out things like pocket watches made out of emeralds are the kind of thing you can find around here. That and diamonds and rubies and all sorts of gems and trinkets. All just there, under you.
+
+See, I know plenty of folks who think of this place as smart - building their great big
+buildings, nice businesses and that, and they don’t know the mess of things underneath their feet. I’ve never seen a hoard like all that at Cheapside, but it’s not the first time we’ve found something when digging on a site. You could probably dig anywhere in the City and find something to surprise you.
+
+I like the look of this street - head down there, and make sure to see what treasure you can spot for yourself! Might get as lucky as me!
+
+Right, hold on a minute, I need to get my bearings. Jack sent me all sorts of directions and that on top of trying to make sure no one tries anything on - you ever get turned around in this place? All the streets and half-streets and three-quarter streets and that. Head’s been swimming anyway with all the theories - see they don’t know where the treasure’s from. The hoard. Lots of ideas being thrown around but no one seems to know for sure - I’ve heard most of them but like I said, head’s swimming.
+
+<<timed 10s>><<set $prevpass to $passage>><<goto "MC-11">><</timed>>
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-11 {"position":"450,1025","size":"100,100"}
+<<set $passage to "MC-11">>
+<<include "header">>
+<main>
+
+Let’s make off down Bartholomew Close. Not Bartholomew Place, that’s a dead end! - you know what, I know there’s some places futher down here that’ll jog my memory. There’s a Heights, a House, a Building and a Hall, in that order - names are plain as day on the front of the buildings, remind me their full names and I’m sure I’ll remember the theories...You get to number 90 you’ve gone too far, mind you.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-07B">><</button>>
+
+<<set $butchershall to false>>
+<<set $underwoodbuilding to false>>
+<<set $spencerheights to false>>
+<<set $dominionhouse to false>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-12 {"position":"450,1150","size":"100,100"}
+<<set $passage to "MC-12">>
+<<include "header">>
+<main>
+
+
+
+<<textbox "$butchershallanswer" "">> Hall
+<<textbox "$underwoodbuildinganswer" "">> Building
+<<textbox "$spencerheightsanswer" "">> Heights
+<<textbox "$dominionhouseanswer" "">> House
+
+
+
+</main>
+<<include "footer">>
+
+

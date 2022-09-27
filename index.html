@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Mysteries of the City" startnode="15" creator="Twine" creator-version="2.5.1" format="SugarCube" format-version="2.36.1" ifid="ffcf0e81-60de-4704-8c8d-7a0b2e3ed1ed" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+	<tw-storydata name="Mysteries of the City" startnode="14" creator="Twine" creator-version="2.5.1" format="SugarCube" format-version="2.36.1" ifid="ffcf0e81-60de-4704-8c8d-7a0b2e3ed1ed" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 /* GENERICS */
 html {
@@ -685,7 +685,7 @@ Let’s make off down Bartholomew Close. Not Bartholomew Place, that’s a dead 
 
 MAP NEEDED
 
-&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-07B&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 &lt;&lt;set $butchershall to false&gt;&gt;
 &lt;&lt;set $underwoodbuilding to false&gt;&gt;
@@ -697,13 +697,225 @@ MAP NEEDED
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
+&lt;&lt;set $buildingoptions to [&quot;&quot;, &quot;Spencer&quot;,&quot;Underwood&quot;,&quot;Dominion&quot;,&quot;Butchers&quot;]&gt;&gt;
 
 
-&lt;&lt;textbox &quot;$butchershallanswer&quot; &quot;&quot;&gt;&gt; Hall
-&lt;&lt;textbox &quot;$underwoodbuildinganswer&quot; &quot;&quot;&gt;&gt; Building
-&lt;&lt;textbox &quot;$spencerheightsanswer&quot; &quot;&quot;&gt;&gt; Heights
-&lt;&lt;textbox &quot;$dominionhouseanswer&quot; &quot;&quot;&gt;&gt; House
+&lt;&lt;if !$butchershall&gt;&gt;
+  &lt;div class = &quot;butchershall&quot;&gt;
+    &lt;&lt;listbox &quot;$butchershallanswer&quot; autoselect&gt;&gt;
+        &lt;&lt;optionsfrom $buildingoptions&gt;&gt;
+     &lt;&lt;/listbox&gt;&gt; Hall
+     &lt;&lt;button &quot;try&quot;&gt;&gt;
+        &lt;&lt;if $butchershallanswer is &quot;Butchers&quot;&gt;&gt;
+       	  &lt;&lt;set $butchershall to true&gt;&gt;
+          &lt;&lt;replace &quot;.butchershall&quot;&gt;&gt;
+              &lt;&lt;button &quot;Butcher&#39;s Hall&quot;&gt;&gt;
+                  &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13A&quot;&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;	
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;button &quot;Butcher&#39;s Hall&quot;&gt;&gt;
+        &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13A&quot;&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 
+&lt;&lt;if !$underwoodbuilding&gt;&gt;
+  &lt;div class = &quot;underwoodbuilding&quot;&gt;
+    &lt;&lt;listbox &quot;$underwoodbuildinganswer&quot; autoselect&gt;&gt;
+        &lt;&lt;optionsfrom $buildingoptions&gt;&gt;
+     &lt;&lt;/listbox&gt;&gt; Building
+     &lt;&lt;button &quot;try&quot;&gt;&gt;
+        &lt;&lt;if $underwoodbuildinganswer is &quot;Underwood&quot;&gt;&gt;
+       	  &lt;&lt;set $underwoodbuilding to true&gt;&gt;
+          &lt;&lt;replace &quot;.underwoodbuilding&quot;&gt;&gt;
+              &lt;&lt;button &quot;Underwood Building&quot;&gt;&gt;
+                  &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13B&quot;&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;	
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;button &quot;Underwood Building&quot;&gt;&gt;
+        &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13B&quot;&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if !$spencerheights&gt;&gt;
+  &lt;div class = &quot;spencerheights&quot;&gt;
+    &lt;&lt;listbox &quot;$spencerheightsanswer&quot; autoselect&gt;&gt;
+        &lt;&lt;optionsfrom $buildingoptions&gt;&gt;
+     &lt;&lt;/listbox&gt;&gt; Heights
+     &lt;&lt;button &quot;try&quot;&gt;&gt;
+        &lt;&lt;if $spencerheightsanswer is &quot;Spencer&quot;&gt;&gt;
+       	  &lt;&lt;set $spencerheights to true&gt;&gt;
+          &lt;&lt;replace &quot;.spencerheights&quot;&gt;&gt;
+              &lt;&lt;button &quot;Spencer Heights&quot;&gt;&gt;
+                  &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13C&quot;&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;	
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;button &quot;Spencer Heights&quot;&gt;&gt;
+        &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13C&quot;&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if !$dominionhouse&gt;&gt;
+  &lt;div class = &quot;dominionhouse&quot;&gt;
+    &lt;&lt;listbox &quot;$dominionhouseanswer&quot; autoselect&gt;&gt;
+        &lt;&lt;optionsfrom $buildingoptions&gt;&gt;
+     &lt;&lt;/listbox&gt;&gt; House
+     &lt;&lt;button &quot;try&quot;&gt;&gt;
+        &lt;&lt;if $dominionhouseanswer is &quot;Dominion&quot;&gt;&gt;
+       	  &lt;&lt;set $dominionhouse to true&gt;&gt;
+          &lt;&lt;replace &quot;.dominionhouse&quot;&gt;&gt;
+              &lt;&lt;button &quot;Dominion House&quot;&gt;&gt;
+                  &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13D&quot;&gt;&gt;
+              &lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;	
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;button &quot;Dominion House&quot;&gt;&gt;
+        &lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-13D&quot;&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="MC-13A" tags="" position="250,1300" size="100,100">&lt;&lt;set $passage to &quot;MC-13A&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Butcher&#39;s Hall
+
+Of course, the nasty business of the civil war. It might’ve been a jeweller, or a few of them, becoming soldiers. Something about records showing that someone couldn’t collect money because so many jewellery had gone to war. The Civil War. So might’ve been some burying it before they went off, and, with the war, not coming back.
+
+
+
+&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="MC-13B" tags="" position="375,1300" size="100,100">&lt;&lt;set $passage to &quot;MC-13B&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Underwood Building
+
+Well, quite literally, it was under a wooden building! So someone might’ve buried the jewels to keep them safe when the Great Fire of London flared up, then fled to get away from the fire. Though why someone would just have all this lying around ready to bury like that is beyond me.
+
+&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="MC-13C" tags="" position="525,1300" size="100,100">&lt;&lt;set $passage to &quot;MC-13C&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Spencer Heights
+
+Yes, posh name like that, now I remember. There was a posh family - the kind of posh you got in the 1600s - called the Howards, and when the Civil War came round, they fled onto the continent, and everything they owned over here was seized. So might’ve been that their jewels were hidden away.
+
+&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="MC-13D" tags="" position="650,1300" size="100,100">&lt;&lt;set $passage to &quot;MC-13D&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Dominion House
+
+That’s right - one’s to do with jewellers being spread all over. Less dramatic, this one - apparently over half the jewellers in London around that time were from other countries and travelled around. So it’s the stash of someone who left it in a safe place and just never got back here.
+
+&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="MC-14" tags="" position="450,1425" size="100,100">&lt;&lt;set $passage to &quot;MC-14&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Having all them theories only makes it stranger, if you ask me. You expect stuff around here to be easily explained - nice and neat, all that. But there can be treasure, hundreds of years old, and no one even knows how it got there.
+
+Right - head down Bartholomew Close, head towards the building that says Little Britain, then left again onto Montague Street. Keep an eye out for treasure and folks who might want ours.
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-15&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="MC-15" tags="" position="450,1550" size="100,100">&lt;&lt;set $passage to &quot;MC-15&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+A roundabout’s an odd place for that museum of yours, but I suppose people have their reasons.
+
+Some of the stuff that goes Stony Jack’s way gets into museums, it’s fancy enough - maybe my finds will! I tell you, that Cheapside Hoard wouldn’t be out of place in somewhere like that.
+
+It’s old enough for it - definitely from before the Great Fire of London, even I can be sure of that - you can always tell because when you dig down deep enough everything’s melted, there’s burnt oil in the ground, can spot it a mile away. Name for it is the Fire Horizon - and there was all that fire damage around the hoard - so it must have been around then.
+
+...
+
+Hello? Hello? Anyone around here is either heading to register a new business or listening out for gossip about that Hubert man. Which are you?
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re registering a business&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-16A&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;We&#39;re here for gossip&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-16B&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="MC-16A" tags="" position="375,1675" size="100,100">&lt;&lt;set $passage to &quot;MC-16A&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Same as myself. Sibbell Theame, I had a shoemaking business a little South of here, but all gone in the Great Fire. Whole workshop went down in the blaze - so I’m trying my luck with an application for a gingerbread stall to tide myself over at least. 
+
+You must have a little interest in these Robert Hubert stories, though. Not sure there’s a person in London who hasn’t been discussing him and his impossible confession. “I started the Great Fire of London.” What drives a man to confess to something like that when it can’t possibly be true? 
+
+Well - you can pick up some of the gossip on your way to register. Every time I think I’ve heard all there is to hear about Hubert and this strangeness, there’s a new whisper down these streets. Come down Aldersgate. Look out for the blue plaque on the wall, then the barbican signs then barbican station, and you’re bound to be caught up swiftly enough.
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-17&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="MC-16B" tags="" position="525,1675" size="100,100">&lt;&lt;set $passage to &quot;MC-16B&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+You do have the look of gossips about you. I’m here for business myself - Sibbell Theame, perhaps you know of my shoemaking business, a little South of here. All gone in the Great Fire of course, whole workshop down in the blaze - but no time to pause, so onwards with a new venture. A gingerbread stall. It’ll be something. 
+
+But you’re here for the rumours and speculation. Plenty others indulging in it lately, with that Robert Hubert and his impossible confession. “I started the Great Fire of London.” I ask you, what would make a man falsely confess to a thing like that? 
+
+Well you won’t be short of gossip around here. Come with me - every time I think I’ve heard all there is to hear about Hubert and this strange business, there’s some new whisper down these streets. Come down Aldersgate. Look out for the blue plaque on the wall, then the barbican signs then barbican station, and you’re bound to be caught up swiftly enough.
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-17&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 
 &lt;/main&gt;

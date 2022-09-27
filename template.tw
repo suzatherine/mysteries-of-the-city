@@ -7,7 +7,7 @@ Mysteries of the City
 	"ifid": "FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "MC-12",
+	"start": "MC-11",
 	"zoom": 0.6
 }
 
@@ -658,7 +658,7 @@ Let’s make off down Bartholomew Close. Not Bartholomew Place, that’s a dead 
 
 MAP NEEDED
 
-<<button "We're here">><<set $prevpass to $passage>><<goto "MC-07B">><</button>>
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-12">><</button>>
 
 <<set $butchershall to false>>
 <<set $underwoodbuilding to false>>
@@ -674,13 +674,257 @@ MAP NEEDED
 <<include "header">>
 <main>
 
+<<set $buildingoptions to ["", "Spencer","Underwood","Dominion","Butchers"]>>
 
 
-<<textbox "$butchershallanswer" "">> Hall
-<<textbox "$underwoodbuildinganswer" "">> Building
-<<textbox "$spencerheightsanswer" "">> Heights
-<<textbox "$dominionhouseanswer" "">> House
+<<if !$butchershall>>
+  <div class = "butchershall">
+    <<listbox "$butchershallanswer" autoselect>>
+        <<optionsfrom $buildingoptions>>
+     <</listbox>> Hall
+     <<button "try">>
+        <<if $butchershallanswer is "Butchers">>
+       	  <<set $butchershall to true>>
+          <<replace ".butchershall">>
+              <<button "Butcher's Hall">>
+                  <<set $prevpass to $passage>><<goto "MC-13A">>
+              <</button>>
+          <</replace>>	
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	<<button "Butcher's Hall">>
+        <<set $prevpass to $passage>><<goto "MC-13A">>
+    <</button>>
+<</if>>
 
+<<if !$underwoodbuilding>>
+  <div class = "underwoodbuilding">
+    <<listbox "$underwoodbuildinganswer" autoselect>>
+        <<optionsfrom $buildingoptions>>
+     <</listbox>> Building
+     <<button "try">>
+        <<if $underwoodbuildinganswer is "Underwood">>
+       	  <<set $underwoodbuilding to true>>
+          <<replace ".underwoodbuilding">>
+              <<button "Underwood Building">>
+                  <<set $prevpass to $passage>><<goto "MC-13B">>
+              <</button>>
+          <</replace>>	
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	<<button "Underwood Building">>
+        <<set $prevpass to $passage>><<goto "MC-13B">>
+    <</button>>
+<</if>>
+
+<<if !$spencerheights>>
+  <div class = "spencerheights">
+    <<listbox "$spencerheightsanswer" autoselect>>
+        <<optionsfrom $buildingoptions>>
+     <</listbox>> Heights
+     <<button "try">>
+        <<if $spencerheightsanswer is "Spencer">>
+       	  <<set $spencerheights to true>>
+          <<replace ".spencerheights">>
+              <<button "Spencer Heights">>
+                  <<set $prevpass to $passage>><<goto "MC-13C">>
+              <</button>>
+          <</replace>>	
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	<<button "Spencer Heights">>
+        <<set $prevpass to $passage>><<goto "MC-13C">>
+    <</button>>
+<</if>>
+
+<<if !$dominionhouse>>
+  <div class = "dominionhouse">
+    <<listbox "$dominionhouseanswer" autoselect>>
+        <<optionsfrom $buildingoptions>>
+     <</listbox>> House
+     <<button "try">>
+        <<if $dominionhouseanswer is "Dominion">>
+       	  <<set $dominionhouse to true>>
+          <<replace ".dominionhouse">>
+              <<button "Dominion House">>
+                  <<set $prevpass to $passage>><<goto "MC-13D">>
+              <</button>>
+          <</replace>>	
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	<<button "Dominion House">>
+        <<set $prevpass to $passage>><<goto "MC-13D">>
+    <</button>>
+<</if>>
+
+
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-13A {"position":"250,1300","size":"100,100"}
+<<set $passage to "MC-13A">>
+<<include "header">>
+<main>
+
+Butcher's Hall
+
+Of course, the nasty business of the civil war. It might’ve been a jeweller, or a few of them, becoming soldiers. Something about records showing that someone couldn’t collect money because so many jewellery had gone to war. The Civil War. So might’ve been some burying it before they went off, and, with the war, not coming back.
+
+
+
+<<if $butchershall $underwoodbuilding $spencerheights $dominionhouse>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-14">><</timed>>
+<<else>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-12">><</timed>>
+<</if>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-13B {"position":"375,1300","size":"100,100"}
+<<set $passage to "MC-13B">>
+<<include "header">>
+<main>
+
+Underwood Building
+
+Well, quite literally, it was under a wooden building! So someone might’ve buried the jewels to keep them safe when the Great Fire of London flared up, then fled to get away from the fire. Though why someone would just have all this lying around ready to bury like that is beyond me.
+
+<<if $butchershall $underwoodbuilding $spencerheights $dominionhouse>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-14">><</timed>>
+<<else>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-12">><</timed>>
+<</if>>
+</main>
+<<include "footer">>
+
+
+:: MC-13C {"position":"525,1300","size":"100,100"}
+<<set $passage to "MC-13C">>
+<<include "header">>
+<main>
+
+Spencer Heights
+
+Yes, posh name like that, now I remember. There was a posh family - the kind of posh you got in the 1600s - called the Howards, and when the Civil War came round, they fled onto the continent, and everything they owned over here was seized. So might’ve been that their jewels were hidden away.
+
+<<if $butchershall $underwoodbuilding $spencerheights $dominionhouse>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-14">><</timed>>
+<<else>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-12">><</timed>>
+<</if>>
+</main>
+<<include "footer">>
+
+
+:: MC-13D {"position":"650,1300","size":"100,100"}
+<<set $passage to "MC-13D">>
+<<include "header">>
+<main>
+
+Dominion House
+
+That’s right - one’s to do with jewellers being spread all over. Less dramatic, this one - apparently over half the jewellers in London around that time were from other countries and travelled around. So it’s the stash of someone who left it in a safe place and just never got back here.
+
+<<if $butchershall $underwoodbuilding $spencerheights $dominionhouse>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-14">><</timed>>
+<<else>>
+  <<timed 10s>><<set $prevpass to $passage>><<goto "MC-12">><</timed>>
+<</if>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-14 {"position":"450,1425","size":"100,100"}
+<<set $passage to "MC-14">>
+<<include "header">>
+<main>
+
+Having all them theories only makes it stranger, if you ask me. You expect stuff around here to be easily explained - nice and neat, all that. But there can be treasure, hundreds of years old, and no one even knows how it got there.
+
+Right - head down Bartholomew Close, head towards the building that says Little Britain, then left again onto Montague Street. Keep an eye out for treasure and folks who might want ours.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-15">><</button>>
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-15 {"position":"450,1550","size":"100,100"}
+<<set $passage to "MC-15">>
+<<include "header">>
+<main>
+
+A roundabout’s an odd place for that museum of yours, but I suppose people have their reasons.
+
+Some of the stuff that goes Stony Jack’s way gets into museums, it’s fancy enough - maybe my finds will! I tell you, that Cheapside Hoard wouldn’t be out of place in somewhere like that.
+
+It’s old enough for it - definitely from before the Great Fire of London, even I can be sure of that - you can always tell because when you dig down deep enough everything’s melted, there’s burnt oil in the ground, can spot it a mile away. Name for it is the Fire Horizon - and there was all that fire damage around the hoard - so it must have been around then.
+
+...
+
+Hello? Hello? Anyone around here is either heading to register a new business or listening out for gossip about that Hubert man. Which are you?
+
+MAP NEEDED
+
+<<button "We're registering a business">><<set $prevpass to $passage>><<goto "MC-16A">><</button>>
+
+<<button "We're here for gossip">><<set $prevpass to $passage>><<goto "MC-16B">><</button>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-16A {"position":"375,1675","size":"100,100"}
+<<set $passage to "MC-16A">>
+<<include "header">>
+<main>
+
+Same as myself. Sibbell Theame, I had a shoemaking business a little South of here, but all gone in the Great Fire. Whole workshop went down in the blaze - so I’m trying my luck with an application for a gingerbread stall to tide myself over at least. 
+
+You must have a little interest in these Robert Hubert stories, though. Not sure there’s a person in London who hasn’t been discussing him and his impossible confession. “I started the Great Fire of London.” What drives a man to confess to something like that when it can’t possibly be true? 
+
+Well - you can pick up some of the gossip on your way to register. Every time I think I’ve heard all there is to hear about Hubert and this strangeness, there’s a new whisper down these streets. Come down Aldersgate. Look out for the blue plaque on the wall, then the barbican signs then barbican station, and you’re bound to be caught up swiftly enough.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-17">><</button>>
+
+
+</main>
+<<include "footer">>
+
+
+:: MC-16B {"position":"525,1675","size":"100,100"}
+<<set $passage to "MC-16B">>
+<<include "header">>
+<main>
+
+You do have the look of gossips about you. I’m here for business myself - Sibbell Theame, perhaps you know of my shoemaking business, a little South of here. All gone in the Great Fire of course, whole workshop down in the blaze - but no time to pause, so onwards with a new venture. A gingerbread stall. It’ll be something. 
+
+But you’re here for the rumours and speculation. Plenty others indulging in it lately, with that Robert Hubert and his impossible confession. “I started the Great Fire of London.” I ask you, what would make a man falsely confess to a thing like that? 
+
+Well you won’t be short of gossip around here. Come with me - every time I think I’ve heard all there is to hear about Hubert and this strange business, there’s some new whisper down these streets. Come down Aldersgate. Look out for the blue plaque on the wall, then the barbican signs then barbican station, and you’re bound to be caught up swiftly enough.
+
+MAP NEEDED
+
+<<button "We're here">><<set $prevpass to $passage>><<goto "MC-17">><</button>>
 
 
 </main>

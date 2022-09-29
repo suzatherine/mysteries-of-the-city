@@ -499,7 +499,7 @@ You’ve caught me celebrating today!
 
 I’m round here to meet Stony Jack, you see. Got quite the items. What’s the business with the blank faces? You must know Jack - a navvy can’t find anything interesting on a building site without Jack cropping up, ready to buy it off ‘em. Suppose you mustn’t have been as lucky as me and the lads down near Friday Street if you don’t know Jack - fingers crossed you have reason to visit him soon!
 
-
+ 
 <<timed 3s>><<set $prevpass to $passage>><<goto "MC-06">><</timed>>
 
 

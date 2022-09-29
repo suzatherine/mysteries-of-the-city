@@ -524,13 +524,13 @@ Why don’t you come with - the more the merrier, and truth be told I’ll be gl
 I can trust you, right?
 
 <<button "Of course">>
-  <<set $6answer to "ofcourse">>
+  <<set $answer6 to "ofcourse">>
   <<set $prevpass to $passage>>
   <<goto "MC-07A">>
-</button>>
+<</button>>
 
 <<button "What's in it for us?">>
-  <<set $6answer to "whatsinitforus">>
+  <<set $answer6 to "whatsinitforus">>
   <<set $prevpass to $passage>>
   <<goto "MC-07B">>
 <</button>>
@@ -1001,7 +1001,7 @@ There’s no way the man could have done it. Though I won’t lie, if he were a 
 
 Well, you should be satisfied. I had the measure of you, gossips all - I’ll leave you to your stories and strange ideas...
 
-<<timed 10s>><<set $prevpass to $passage>><<goto "MC-21">><</timed>>
+<<timed 3s>><<set $prevpass to $passage>><<goto "MC-21">><</timed>>
 
 </main>
 <<include "footer">>
@@ -1015,7 +1015,7 @@ Well, you should be satisfied. I had the measure of you, gossips all - I’ll le
 
 Well, all the best with your business. It’s a difficult time to be starting again from scratch. I must rush - not all have the luxury of waiting around for more stories and strange ideas, so I suppose you may as well enjoy it. I must rush to the registry, though. If you do ever hear more about that Hubert, however, I do hope you’ll tell me...
 
-<<timed 10s>><<set $prevpass to $passage>><<goto "MC-21">><</timed>>
+<<timed 3s>><<set $prevpass to $passage>><<goto "MC-21">><</timed>>
 
 </main>
 <<include "footer">>

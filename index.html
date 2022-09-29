@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Mysteries of the City" startnode="14" creator="Twine" creator-version="2.5.1" format="SugarCube" format-version="2.36.1" ifid="ffcf0e81-60de-4704-8c8d-7a0b2e3ed1ed" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+	<tw-storydata name="Mysteries of the City" startnode="5" creator="Twine" creator-version="2.5.1" format="SugarCube" format-version="2.36.1" ifid="ffcf0e81-60de-4704-8c8d-7a0b2e3ed1ed" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 /* GENERICS */
 html {
@@ -578,9 +578,17 @@ Why don’t you come with - the more the merrier, and truth be told I’ll be gl
 
 I can trust you, right?
 
-&lt;&lt;button &quot;Of course&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-07A&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;Of course&quot;&gt;&gt;
+  &lt;&lt;set $6answer to &quot;ofcourse&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;goto &quot;MC-07A&quot;&gt;&gt;
+&lt;/button&gt;&gt;
 
-&lt;&lt;button &quot;What&#39;s in it for us?&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-07B&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;What&#39;s in it for us?&quot;&gt;&gt;
+  &lt;&lt;set $6answer to &quot;whatsinitforus&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;goto &quot;MC-07B&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 
 
 
@@ -802,7 +810,7 @@ Of course, the nasty business of the civil war. It might’ve been a jeweller, o
 
 
 
-&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+&lt;&lt;if $butchershall and $underwoodbuilding and $spencerheights and $dominionhouse&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -817,7 +825,7 @@ Underwood Building
 
 Well, quite literally, it was under a wooden building! So someone might’ve buried the jewels to keep them safe when the Great Fire of London flared up, then fled to get away from the fire. Though why someone would just have all this lying around ready to bury like that is beyond me.
 
-&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+&lt;&lt;if $butchershall and $underwoodbuilding and $spencerheights and $dominionhouse&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -831,7 +839,7 @@ Spencer Heights
 
 Yes, posh name like that, now I remember. There was a posh family - the kind of posh you got in the 1600s - called the Howards, and when the Civil War came round, they fled onto the continent, and everything they owned over here was seized. So might’ve been that their jewels were hidden away.
 
-&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+&lt;&lt;if $butchershall and $underwoodbuilding and $spencerheights and $dominionhouse&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -845,7 +853,7 @@ Dominion House
 
 That’s right - one’s to do with jewellers being spread all over. Less dramatic, this one - apparently over half the jewellers in London around that time were from other countries and travelled around. So it’s the stash of someone who left it in a safe place and just never got back here.
 
-&lt;&lt;if $butchershall $underwoodbuilding $spencerheights $dominionhouse&gt;&gt;
+&lt;&lt;if $butchershall and $underwoodbuilding and $spencerheights and $dominionhouse&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-14&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-12&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -882,9 +890,23 @@ Hello? Hello? Anyone around here is either heading to register a new business or
 
 MAP NEEDED
 
-&lt;&lt;button &quot;We&#39;re registering a business&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-16A&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;We&#39;re registering a business&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;set $answer15 to &quot;business&quot;&gt;&gt;
+  &lt;&lt;goto &quot;MC-16A&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 
-&lt;&lt;button &quot;We&#39;re here for gossip&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-16B&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;We&#39;re here for gossip&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+    &lt;&lt;set $answer15 to &quot;gossip&quot;&gt;&gt;
+  &lt;&lt;goto &quot;MC-16B&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+
+
+
+
+
 
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="MC-16A" tags="" position="375,1675" size="100,100">&lt;&lt;set $passage to &quot;MC-16A&quot;&gt;&gt;
@@ -917,6 +939,180 @@ MAP NEEDED
 
 &lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-17&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="MC-17" tags="" position="450,1800" size="100,100">&lt;&lt;set $passage to &quot;MC-15&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+/*Waiting for confirmation on what this part looks like*/
+
+&lt;&lt;button &quot;TEMP NEXT&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-19&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+
+&lt;&lt;button &quot;What house was destroyed by another fire?&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-18A&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;What is the first symbol you pass that accompanies the Barbican’s name?&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-18B&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;What house was destroyed by another fire?&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-18A&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="MC-19" tags="" position="450,2000" size="100,100">&lt;&lt;set $passage to &quot;MC-14&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Barbican Station
+
+There’s no way the man could have done it. Though I won’t lie, if he were a spy sent to set a blaze, then confessing in such a manner, where it’s surely impossible you could have, would be impressive...But no, surely that’s pure silliness. Easy to get carried away with the stories. Though it seems as if maybe no one will ever know why he’s made such claims - strange to think there might never be a true story to it.
+
+&lt;&lt;button &quot;Next&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;if $answer15 is &quot;gossip&quot;&gt;&gt;
+  &lt;&lt;goto &quot;MC-20A&quot;&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+  &lt;&lt;goto &quot;MC-20B&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="MC-20A" tags="" position="375,2125" size="100,100">&lt;&lt;set $passage to &quot;MC-20A&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+
+Well, you should be satisfied. I had the measure of you, gossips all - I’ll leave you to your stories and strange ideas...
+
+&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-21&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="MC-20B" tags="" position="525,2125" size="100,100">&lt;&lt;set $passage to &quot;MC-20B&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+
+Well, all the best with your business. It’s a difficult time to be starting again from scratch. I must rush - not all have the luxury of waiting around for more stories and strange ideas, so I suppose you may as well enjoy it. I must rush to the registry, though. If you do ever hear more about that Hubert, however, I do hope you’ll tell me...
+
+&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-21&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="MC-21" tags="" position="450,2250" size="100,100">&lt;&lt;set $passage to &quot;MC-21&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+There you are! Easy enough to get lost in this place sometimes. Tell you what, I can almost feel the hundred pounds in my hand. Can’t even begin to think of what I’ll spend that kind of money on. Well, I can definitely begin, but you know what I mean...
+
+Oh, and I just heard a new idea on where the grand ‘Cheapside Hoard’ came from.
+
+Bumped into Sidney, top lad who was at Cheapside too, and apparently there was a gem dealer, name Gerrard Pulman, who had this crate full of fancy stuff on a ship coming up to England. This was in the 1600s, of course. But this Pulman - he was poisoned, robbed and thrown overboard. A story of pirate treasure if ever I heard one! And his crate, it came to London half-empty, so some folks are thinking that all the gems and treasure in Cheapside came from. Bit muggy on how it got buried, still, but it’s a damn good story.
+
+Come on, can’t risk leaving Stony Jack waiting. Not long now - so get in some good treasure for your own hoard while you can. Turn around and go down Long Lane, left onto Cloth St then swift right into East Passage.
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-22&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="MC-22" tags="" position="450,2375" size="100,100">&lt;&lt;set $passage to &quot;MC-22&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Wait - before I get up to see Jack - these stories have got me thinking. It’s the story that makes something like this, isn’t it? If I had pearls in my pocket because I found them in my mum’s drawers, no one would give a toss, least nowhere near as much as pearls from a mysterious unexplained treasure chest found in the middle of the city.
+
+So maybe - I’m not trying to swindle anyone, I’m only thinking - maybe the better the story that goes along with what I’ve got in my pockets, the more Jack might see to  offering me for it all...What do you think is the best story? Pulman on his ship, or a jeweller off to war, those Howards fleeing and their stuff getting taken, someone burying it before fleeing the Great Fire...You haven’t heard any others, have you? You chew over what’s the best story, I’ll ask you once you’ve ducked through The Old Red Cow and headed to Smithfield Market.
+
+MAP NEEDED
+
+&lt;&lt;button &quot;We&#39;re here&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-23&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="MC-23" tags="" position="450,2500" size="100,100">&lt;&lt;set $passage to &quot;MC-23&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+So, what do you think? What’s the best story to go with it all? When no one seems to know for sure, may as well indulge in what one you like.
+
+
+&lt;&lt;button &quot;Stolen from Gerrard Pulman when he was at sea&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;if $answer6 is &quot;ofcourse&quot;&gt;&gt;
+    &lt;&lt;goto &quot;MC-24A&quot;&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;&lt;goto &quot;MC-24B&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;Taken from the Howards after they fled the country&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;if $answer6 is &quot;ofcourse&quot;&gt;&gt;
+    &lt;&lt;goto &quot;MC-24A&quot;&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;&lt;goto &quot;MC-24B&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;Hidden away by a jeweller who never returned from war&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;if $answer6 is &quot;ofcourse&quot;&gt;&gt;
+    &lt;&lt;goto &quot;MC-24A&quot;&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;&lt;goto &quot;MC-24B&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+&lt;&lt;button &quot;Left by someone fleeing the Great Fire of London&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;if $answer6 is &quot;ofcourse&quot;&gt;&gt;
+    &lt;&lt;goto &quot;MC-24A&quot;&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;&lt;goto &quot;MC-24B&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="MC-24A" tags="" position="375,2625" size="100,100">&lt;&lt;set $passage to &quot;MC-24A&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+I’ve not forgotten what I said when I met you, and you’re
+smart ones to ask after payment - so here. I’m not above sharing the treasure around a bit.
+
+&lt;&lt;link &quot;&lt;img src=&#39;https://i.imgur.com/uBgQ2Lu.jpg&#39; style=&#39;width:100px&#39;&gt;&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;goto &quot;MC-25&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="MC-24B" tags="" position="525,2625" size="100,100">&lt;&lt;set $passage to &quot;MC-24A&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Look, I appreciate your help - I’m here, safe and sound, still with everything I came with - so here. I’m not above sharing the treasure around a bit.
+
+&lt;&lt;link &quot;&lt;img src=&#39;https://i.imgur.com/uBgQ2Lu.jpg&#39; style=&#39;width:100px&#39;&gt;&quot;&gt;&gt;
+  &lt;&lt;set $prevpass to $passage&gt;&gt;
+  &lt;&lt;goto &quot;MC-25&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="MC-25" tags="" position="450,2750" size="100,100">&lt;&lt;set $passage to &quot;MC-23&quot;&gt;&gt;
+&lt;&lt;include &quot;header&quot;&gt;&gt;
+&lt;main&gt;
+
+Remember: ‘dig right down, haul it up, that’s how we have such good luck!’ Which of you’s got the best trail of buried treasure behind you?
+
+Stay on the lookout when you’re out and about - especially here, there’s a lot under
+our feet folks forget about around here. Might not find a pocket-watch from a whole emerald but who knows what else might be around.
+
+I guess I know what’s around - a hundred pounds with my name on it! All the best to you, I’m getting to Jack!
 
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata></tw-storydata>

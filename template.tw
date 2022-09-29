@@ -489,7 +489,7 @@ You have two options:
 
 
 :: MC-05 {"position":"450,225","size":"100,100"}
-<<set $passage to "MC-06">>
+<<set $passage to "MC-05">>
 <<include "header">>
 <main>
 
@@ -512,7 +512,7 @@ I’m round here to meet Stony Jack, you see. Got quite the items. What’s the 
 
 
 :: MC-06 {"position":"450,350","size":"100,100"}
-<<set $passage to "MC-05">>
+<<set $passage to "MC-06">>
 <<include "header">>
 <main>
 
@@ -524,13 +524,13 @@ Why don’t you come with - the more the merrier, and truth be told I’ll be gl
 I can trust you, right?
 
 <<button "Of course">>
-  <<set $answer6 to "ofcourse">>
+  <<set $6answer to "ofcourse">>
   <<set $prevpass to $passage>>
   <<goto "MC-07A">>
-<</button>>
+</button>>
 
 <<button "What's in it for us?">>
-  <<set $answer6 to "whatsinitforus">>
+  <<set $6answer to "whatsinitforus">>
   <<set $prevpass to $passage>>
   <<goto "MC-07B">>
 <</button>>
@@ -684,6 +684,7 @@ Let’s make off down Bartholomew Close. Not Bartholomew Place, that’s a dead 
 
 <<set $buildingoptions to ["", "Spencer","Underwood","Dominion","Butchers"]>>
 
+I know there’s some places futher down here that’ll jog my memory. There’s a Heights, a House, a Building and a Hall, in that order - names are plain as day on the front of the buildings, remind me their full names and I’m sure I’ll remember the theories...You get to number 90 you’ve gone too far, mind you.
 
 <<if !$butchershall>>
   <div class = "butchershall">
@@ -947,7 +948,7 @@ Well you won’t be short of gossip around here. Come with me - every time I thi
 
 
 :: MC-17 {"position":"450,1800","size":"100,100"}
-<<set $passage to "MC-15">>
+<<set $passage to "MC-17">>
 <<include "header">>
 <main>
 
@@ -968,7 +969,7 @@ Well you won’t be short of gossip around here. Come with me - every time I thi
 
 
 :: MC-19 {"position":"450,2000","size":"100,100"}
-<<set $passage to "MC-14">>
+<<set $passage to "MC-19">>
 <<include "header">>
 <main>
 
@@ -1114,12 +1115,13 @@ So, what do you think? What’s the best story to go with it all? When no one se
 I’ve not forgotten what I said when I met you, and you’re
 smart ones to ask after payment - so here. I’m not above sharing the treasure around a bit.
 
+(placeholder image)
 <<link "<img src='https://i.imgur.com/uBgQ2Lu.jpg' style='width:100px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>>
 
-<<timed 10s>><<set $prevpass to $passage>><<goto "MC-25">><</timed>>
+<<timed 3s>><<set $prevpass to $passage>><<goto "MC-25">><</timed>>
 
 
 </main>
@@ -1127,25 +1129,26 @@ smart ones to ask after payment - so here. I’m not above sharing the treasure 
 
 
 :: MC-24B {"position":"525,2625","size":"100,100"}
-<<set $passage to "MC-24A">>
+<<set $passage to "MC-24B">>
 <<include "header">>
 <main>
 
 Look, I appreciate your help - I’m here, safe and sound, still with everything I came with - so here. I’m not above sharing the treasure around a bit.
 
+(placeholder image)
 <<link "<img src='https://i.imgur.com/uBgQ2Lu.jpg' style='width:100px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>>
 
-<<timed 10s>><<set $prevpass to $passage>><<goto "MC-25">><</timed>>
+<<timed 3s>><<set $prevpass to $passage>><<goto "MC-25">><</timed>>
 
 </main>
 <<include "footer">>
 
 
 :: MC-25 {"position":"450,2750","size":"100,100"}
-<<set $passage to "MC-23">>
+<<set $passage to "MC-25">>
 <<include "header">>
 <main>
 

@@ -548,7 +548,7 @@ You have two options:
  
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="MC-05" tags="" position="450,225" size="100,100">&lt;&lt;set $passage to &quot;MC-06&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="MC-05" tags="" position="450,225" size="100,100">&lt;&lt;set $passage to &quot;MC-05&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
@@ -567,7 +567,7 @@ I’m round here to meet Stony Jack, you see. Got quite the items. What’s the 
 
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="MC-06" tags="" position="450,350" size="100,100">&lt;&lt;set $passage to &quot;MC-05&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="MC-06" tags="" position="450,350" size="100,100">&lt;&lt;set $passage to &quot;MC-06&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
@@ -707,6 +707,7 @@ Let’s make off down Bartholomew Close. Not Bartholomew Place, that’s a dead 
 
 &lt;&lt;set $buildingoptions to [&quot;&quot;, &quot;Spencer&quot;,&quot;Underwood&quot;,&quot;Dominion&quot;,&quot;Butchers&quot;]&gt;&gt;
 
+I know there’s some places futher down here that’ll jog my memory. There’s a Heights, a House, a Building and a Hall, in that order - names are plain as day on the front of the buildings, remind me their full names and I’m sure I’ll remember the theories...You get to number 90 you’ve gone too far, mind you.
 
 &lt;&lt;if !$butchershall&gt;&gt;
   &lt;div class = &quot;butchershall&quot;&gt;
@@ -934,7 +935,7 @@ Well you won’t be short of gossip around here. Come with me - every time I thi
 
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="MC-17" tags="" position="450,1800" size="100,100">&lt;&lt;set $passage to &quot;MC-15&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="MC-17" tags="" position="450,1800" size="100,100">&lt;&lt;set $passage to &quot;MC-17&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
@@ -951,7 +952,7 @@ Well you won’t be short of gossip around here. Come with me - every time I thi
 
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="MC-19" tags="" position="450,2000" size="100,100">&lt;&lt;set $passage to &quot;MC-14&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="MC-19" tags="" position="450,2000" size="100,100">&lt;&lt;set $passage to &quot;MC-19&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
@@ -1073,30 +1074,32 @@ So, what do you think? What’s the best story to go with it all? When no one se
 I’ve not forgotten what I said when I met you, and you’re
 smart ones to ask after payment - so here. I’m not above sharing the treasure around a bit.
 
+(placeholder image)
 &lt;&lt;link &quot;&lt;img src=&#39;https://i.imgur.com/uBgQ2Lu.jpg&#39; style=&#39;width:100px&#39;&gt;&quot;&gt;&gt;
   &lt;&lt;set $prevpass to $passage&gt;&gt;
   &lt;&lt;goto &quot;MC-25&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
-&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 3s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="MC-24B" tags="" position="525,2625" size="100,100">&lt;&lt;set $passage to &quot;MC-24A&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="MC-24B" tags="" position="525,2625" size="100,100">&lt;&lt;set $passage to &quot;MC-24B&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 
 Look, I appreciate your help - I’m here, safe and sound, still with everything I came with - so here. I’m not above sharing the treasure around a bit.
 
+(placeholder image)
 &lt;&lt;link &quot;&lt;img src=&#39;https://i.imgur.com/uBgQ2Lu.jpg&#39; style=&#39;width:100px&#39;&gt;&quot;&gt;&gt;
   &lt;&lt;set $prevpass to $passage&gt;&gt;
   &lt;&lt;goto &quot;MC-25&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
-&lt;&lt;timed 10s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 3s&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-25&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="MC-25" tags="" position="450,2750" size="100,100">&lt;&lt;set $passage to &quot;MC-23&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="MC-25" tags="" position="450,2750" size="100,100">&lt;&lt;set $passage to &quot;MC-25&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 

@@ -7,7 +7,7 @@ Mysteries of the City
 	"ifid": "FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "landing",
+	"start": "MC-15",
 	"zoom": 0.6
 }
 
@@ -499,7 +499,7 @@ You’ve caught me celebrating today!
 
 I’m round here to meet Stony Jack, you see. Got quite the items. What’s the business with the blank faces? You must know Jack - a navvy can’t find anything interesting on a building site without Jack cropping up, ready to buy it off ‘em. Suppose you mustn’t have been as lucky as me and the lads down near Friday Street if you don’t know Jack - fingers crossed you have reason to visit him soon!
 
- 
+
 <<timed 3s>><<set $prevpass to $passage>><<goto "MC-06">><</timed>>
 
 
@@ -868,6 +868,11 @@ Right - head down Bartholomew Close, head towards the building that says Little 
 <<include "header">>
 <main>
 
+<<set $houseanswered to false>>
+<<set $symbolanswered to false>>
+<<set $crestanswered to false>>
+
+
 A roundabout’s an odd place for that museum of yours, but I suppose people have their reasons.
 
 Some of the stuff that goes Stony Jack’s way gets into museums, it’s fancy enough - maybe my finds will! I tell you, that Cheapside Hoard wouldn’t be out of place in somewhere like that.
@@ -952,23 +957,97 @@ Well you won’t be short of gossip around here. Come with me - every time I thi
 <<include "header">>
 <main>
 
-/*Waiting for confirmation on what this part looks like*/
 
-<<button "TEMP NEXT">><<set $prevpass to $passage>><<goto "MC-19">><</button>>
+<<set $checkAnswer to (word, correctArr)=>{
+         let wordCopy = word;
+         let capitalisedWord = wordCopy.toUpperCase()
+        const validAnswers = [...correctArr]
+            for (let correctWord of validAnswers){
+             if (capitalisedWord.includes(correctWord)){
+                return true
+    		 }
+  		  }
+          }
+ >>
 
 
-<<button "What house was destroyed by another fire?">><<set $prevpass to $passage>><<goto "MC-18A">><</button>>
+<<if !$houseanswered>>
+  <div class = "housequestion">
+  <div class = "housefeedback">
+  </div>
+  What house was destroyed by another fire?
+    <<textbox "$houseanswer" "">>
+     <<button "submit">>
+        <<set $houseCorrectAnswers to ['LONDON', 'HOUSE']>>
+        <<if $checkAnswer($houseanswer,$houseCorrectAnswers)>>
+       	  <<set $houseanswered to true>>
+          <<replace ".housequestion">>
+           	Correct! It was London House.        
+          <</replace>>	
+          <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18A">><</timed>>
+          <<else>>
+          <<replace ".housefeedback">>Not quite, try again!<</replace>>
+        <</if>>
+    <</button>>  
+  </div>
+<<else>>
+	Correct! It was London House.    
+<</if>>
 
-<<button "What is the first symbol you pass that accompanies the Barbican’s name?">><<set $prevpass to $passage>><<goto "MC-18B">><</button>>
+<<if !$symbolanswered>>
+  <div class = "symbolquestion">
+  <div class = "symbolfeedback">
+  </div>
+  What is the first symbol you pass that accompanies the Barbican’s name?
+    <<textbox "$symbolanswer" "">>
+     <<button "submit">>
+   		<<set $symbolCorrectAnswers to ['A TOWER', 'TOWER', 'A CASTLE','CASTLE', 'A TURRET','TURRET']>>
+        <<if $checkAnswer($symbolanswer,$symbolCorrectAnswers)>>
+       	  <<set $symbolanswered to true>>
+          <<replace ".symbolquestion">>
+           	Correct! It was a tower.        
+          <</replace>>	
+          <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18B">><</timed>>
+           <<else>>
+          <<replace ".symbolfeedback">>Not quite, try again!<</replace>>
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	Correct! It was a tower. 
+<</if>>
 
-<<button "What house was destroyed by another fire?">><<set $prevpass to $passage>><<goto "MC-18A">><</button>>
+<<if !$crestanswered>>
+  <div class = "crestquestion">
+  <div class = "crestfeedback">
+  </div>
+  What is on the crest accompanying the Barbican’s name?
+    <<textbox "$crestanswer" "">>
+     <<button "submit">>
+     	<<set $correctCrestAnswers to ['GEORGE', 'SAINT GEORGES FLAG', 'SAINT']>>
+        <<if $checkAnswer($crestanswer,$correctCrestAnswers)>>
+       	  <<set $crestanswered to true>>
+          <<replace ".crestquestion">>
+           	Correct! It was St. George's Flag.        
+          <</replace>>	
+          <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18C">><</timed>>
+           <<else>>
+          <<replace ".crestfeedback">>Not quite, try again!<</replace>>
+          <<timed 5s>><<replace ".crestfeedback">> <</replace>><</timed>>
+        <</if>>
+    <</button>>
+  </div>
+<<else>>
+	 	Correct! It was St. George's Flag.    
+<</if>>
+
 
 
 </main>
 <<include "footer">>
 
 
-:: MC-19 {"position":"450,2000","size":"100,100"}
+:: MC-19 {"position":"450,2050","size":"100,100"}
 <<set $passage to "MC-19">>
 <<include "header">>
 <main>
@@ -993,7 +1072,7 @@ There’s no way the man could have done it. Though I won’t lie, if he were a 
 <<include "footer">>
 
 
-:: MC-20A {"position":"375,2125","size":"100,100"}
+:: MC-20A {"position":"375,2175","size":"100,100"}
 <<set $passage to "MC-20A">>
 <<include "header">>
 <main>
@@ -1007,7 +1086,7 @@ Well, you should be satisfied. I had the measure of you, gossips all - I’ll le
 <<include "footer">>
 
 
-:: MC-20B {"position":"525,2125","size":"100,100"}
+:: MC-20B {"position":"525,2175","size":"100,100"}
 <<set $passage to "MC-20B">>
 <<include "header">>
 <main>
@@ -1021,7 +1100,7 @@ Well, all the best with your business. It’s a difficult time to be starting ag
 <<include "footer">>
 
 
-:: MC-21 {"position":"450,2250","size":"100,100"}
+:: MC-21 {"position":"450,2300","size":"100,100"}
 <<set $passage to "MC-21">>
 <<include "header">>
 <main>
@@ -1042,7 +1121,7 @@ MAP NEEDED
 <<include "footer">>
 
 
-:: MC-22 {"position":"450,2375","size":"100,100"}
+:: MC-22 {"position":"450,2425","size":"100,100"}
 <<set $passage to "MC-22">>
 <<include "header">>
 <main>
@@ -1059,7 +1138,7 @@ MAP NEEDED
 <<include "footer">>
 
 
-:: MC-23 {"position":"450,2500","size":"100,100"}
+:: MC-23 {"position":"450,2550","size":"100,100"}
 <<set $passage to "MC-23">>
 <<include "header">>
 <main>
@@ -1107,7 +1186,7 @@ So, what do you think? What’s the best story to go with it all? When no one se
 <<include "footer">>
 
 
-:: MC-24A {"position":"375,2625","size":"100,100"}
+:: MC-24A {"position":"375,2675","size":"100,100"}
 <<set $passage to "MC-24A">>
 <<include "header">>
 <main>
@@ -1128,7 +1207,7 @@ smart ones to ask after payment - so here. I’m not above sharing the treasure 
 <<include "footer">>
 
 
-:: MC-24B {"position":"525,2625","size":"100,100"}
+:: MC-24B {"position":"525,2675","size":"100,100"}
 <<set $passage to "MC-24B">>
 <<include "header">>
 <main>
@@ -1147,7 +1226,7 @@ Look, I appreciate your help - I’m here, safe and sound, still with everything
 <<include "footer">>
 
 
-:: MC-25 {"position":"450,2750","size":"100,100"}
+:: MC-25 {"position":"450,2800","size":"100,100"}
 <<set $passage to "MC-25">>
 <<include "header">>
 <main>
@@ -1158,6 +1237,71 @@ Stay on the lookout when you’re out and about - especially here, there’s a l
 our feet folks forget about around here. Might not find a pocket-watch from a whole emerald but who knows what else might be around.
 
 I guess I know what’s around - a hundred pounds with my name on it! All the best to you, I’m getting to Jack!
+
+</main>
+<<include "footer">>
+
+
+:: MC-18A {"position":"325,1925","size":"100,100"}
+<<set $passage to "MC-18A">>
+<<include "header">>
+<main>
+
+
+“What I don’t get is what reason’s a French watchmaker got for starting fires or spreading lies?”
+
+“Haven’t you heard? He’s been saying he’s a spy - spying on behalf of France.”
+
+<<if $houseanswered and $symbolanswered and $crestanswered>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-19">><</timed>>
+<<else>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-17">><</timed>>
+<</if>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-18B {"position":"450,1925","size":"100,100"}
+<<set $passage to "MC-18B">>
+<<include "header">>
+<main>
+
+
+“He’s been saying he started a fire in Westminster and that’s how it all got going.”
+
+“What rubbish! The fire never even touched Westminster!”
+
+“That’s what people said right to him - so then he started saying he threw a fireball through a window on Pudding Lane!”
+
+
+<<if $houseanswered and $symbolanswered and $crestanswered>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-19">><</timed>>
+<<else>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-17">><</timed>>
+<</if>>
+
+</main>
+<<include "footer">>
+
+
+:: MC-18C {"position":"575,1925","size":"100,100"}
+<<set $passage to "MC-18C">>
+<<include "header">>
+<main>
+
+
+“Apparently Hubert was at sea at the time of the fire! He arrived in London after
+it had even started - so comes to London and straightaway starts saying it was him!”
+
+"The throwing a fireball story doesn’t make sense - there aren’t windows you can throw things through on Pudding Lane...”
+
+
+<<if $houseanswered and $symbolanswered and $crestanswered>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-19">><</timed>>
+<<else>>
+  <<timed 3s>><<set $prevpass to $passage>><<goto "MC-17">><</timed>>
+<</if>>
 
 </main>
 <<include "footer">>

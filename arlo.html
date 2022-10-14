@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED// --><tw-storydata name="Mysteries of the City" startnode="9" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+	<tw-storydata name="Mysteries of the City" startnode="9" creator="Twine" creator-version="2.5.1" format="SugarCube" format-version="2.36.1" ifid="FFCF0E81-60DE-4704-8C8D-7A0B2E3ED1ED" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 @font-face {
   font-family: "Big John";
@@ -432,42 +432,6 @@ width: 100%;
 }
 }
 
-/* LANDING  */
-main.landing{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 95vh
-}
-
-.landing > h2 {
-  font-family: "Big John";
-  text-align:center;
-  margin-block-end: 0;
-}
-
-.landing > a {
-  display:flex;    
-  justify-content: center;
-  
-}
-
-.landing > a:active{
-  background-color: transparent;
-
-}
-
-.landing > a > img {
-  width: 80%;
-  max-width: 300px;
-}
-
-/* END */
-main.end > h2{
-  margin-block-end: 0;
-}
-
 /* KEY  */
 .key-wrapper{
   width:fit-content;
@@ -731,7 +695,7 @@ Mysteries of the City&lt;/header&gt;</tw-passagedata><tw-passagedata pid="3" nam
 &lt;div class=&quot;nav-item forward&quot;&gt;&lt;&lt;button &quot;&gt;&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto $nextpassage&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;
 &lt;/footer&gt;</tw-passagedata><tw-passagedata pid="4" name="footersimple" tags="" position="100,375" size="100,100">&lt;footer&gt;&lt;div class=&quot;nav-wrapper &quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;&lt;&quot;&gt;&gt;&lt;&lt;goto $prevpass&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Replay&quot;&gt;&gt;&lt;&lt;goto $passage&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;nav-wrapper&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Take me to the end&quot;&gt;&gt;&lt;&lt;goto &quot;lost&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="5" name="footerlost" tags="" position="100,375" size="100,100">&lt;footer&gt;&lt;div class=&quot;nav-wrapper &quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Back&quot;&gt;&gt;&lt;&lt;goto $prevpass&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="6" name="footerend" tags="" position="99,485" size="100,100">&lt;footer&gt;
 &lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Start again&quot;&gt;&gt;&lt;&lt;goto &quot;landing&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;
-&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="7" name="footerkey" tags="" position="225,50" size="100,100">&lt;footer&gt;&lt;div class=&quot;nav-wrapper&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;&lt;&quot;&gt;&gt;&lt;&lt;goto $prevpass&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Start again&quot;&gt;&gt;&lt;&lt;goto &quot;landing&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;nav-wrapper&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Show map&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;end&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;nav-wrapper end&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Key&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-27&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;/div&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Try another adventure&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-28&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="8" name="lost" tags="" position="450,50" size="100,100">&lt;&lt;set $passage to &quot;lost&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;
+&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="7" name="footerkey" tags="" position="225,50" size="100,100">&lt;footer&gt;&lt;div class=&quot;nav-wrapper&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;&lt;&quot;&gt;&gt;&lt;&lt;goto $prevpass&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Start again&quot;&gt;&gt;&lt;&lt;goto &quot;landing&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;nav-wrapper end&quot;&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Key&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-27&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;/div&gt;&lt;div class=&quot;nav-item&quot;&gt;&lt;&lt;button &quot;Try another adventure&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-28&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="8" name="lost" tags="" position="450,50" size="100,100">&lt;&lt;set $passage to &quot;lost&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;
 &lt;main&gt;
 You have two options:
 
@@ -740,22 +704,19 @@ You have two options:
 &lt;&lt;button &quot;Take me straight to the end location!&quot;&gt;&gt;&lt;&lt;goto &quot;end&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/main&gt;
 &lt;&lt;include &quot;footerlost&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="landing" tags="" position="450,50" size="100,100">&lt;&lt;set $passage to &quot;landing&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;
-&lt;main class=&quot;landing&quot;&gt;
-&lt;h2&gt;Mysteries of the City&lt;/h2&gt;
-&lt;&lt;link &quot;&lt;img src=&#39;./assets/dragon2.gif&#39;&gt;&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-01&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;&lt;button &quot;Start&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-01&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="end" tags="" position="100,625" size="100,100">&lt;&lt;set $passage to &quot;end&quot;&gt;&gt;&lt;&lt;set $nextpassage to &quot;MC-26&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;&lt;set $endMap = setup.generateDirectionsMap([51.51852209840634, -0.09987363281432894],[51.51668008618492, -0.0828478914446183])&gt;&gt;
-&lt;main class=&quot;end&quot;&gt;&lt;h2&gt;End location&lt;/h2&gt;
-Smithfield Market
-1 East Poultry Avenue
-EC1A9PT
 
-&lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-26&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;main&gt;
+&lt;h2&gt;Mysteries of the City&lt;/h2&gt;
+
+ &lt;&lt;button &quot;start&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-01&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="end" tags="" position="100,625" size="100,100">&lt;&lt;set $passage to &quot;end&quot;&gt;&gt;&lt;&lt;set $nextpassage to &quot;MC-26&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;&lt;set $endMap = setup.generateDirectionsMap([51.51852209840634, -0.09987363281432894],[51.51668008618492, -0.0828478914446183])&gt;&gt;
+&lt;main&gt;
+End location
 
 $endMap
-
+  &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;set $prevpass to $passage&gt;&gt;&lt;&lt;goto &quot;MC-26&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerkey&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="MC-01" tags="" position="600,175" size="100,100">&lt;&lt;set $passage to &quot;MC-01&quot;&gt;&gt;&lt;&lt;set $nextpassage to &quot;MC-02A&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;&lt;audio &quot;MC_01&quot; play&gt;&gt;
+&lt;&lt;include &quot;footerend&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="MC-01" tags="" position="600,175" size="100,100">&lt;&lt;set $passage to &quot;MC-01&quot;&gt;&gt;&lt;&lt;set $nextpassage to &quot;MC-02A&quot;&gt;&gt;&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;&lt;audio &quot;MC_01&quot; play&gt;&gt;
 &lt;main&gt;
 &lt;div id=&quot;mount&quot;&gt;&lt;/div&gt; 
 

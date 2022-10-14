@@ -347,6 +347,42 @@ width: 100%;
 }
 }
 
+/* LANDING  */
+main.landing{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 95vh
+}
+
+.landing > h2 {
+  font-family: "Big John";
+  text-align:center;
+  margin-block-end: 0;
+}
+
+.landing > a {
+  display:flex;    
+  justify-content: center;
+  
+}
+
+.landing > a:active{
+  background-color: transparent;
+
+}
+
+.landing > a > img {
+  width: 80%;
+  max-width: 300px;
+}
+
+/* END */
+main.end > h2{
+  margin-block-end: 0;
+}
+
 /* KEY  */
 .key-wrapper{
   width:fit-content;
@@ -613,7 +649,6 @@ setup.checkForRepeats = (array,element) => {
 <<waitforaudio>>
 
 
-
 :: header {"position":"100,225","size":"100,100"}
 <header>
 Mysteries of the City</header>
@@ -627,6 +662,7 @@ Mysteries of the City</header>
 <div class="nav-item forward"><<button ">">><<set $prevpass to $passage>><<goto $nextpassage>><</button>></div>
 </footer>
 
+
 :: footersimple {"position":"100,375","size":"100,100"}
 <footer><div class="nav-wrapper "><div class="nav-item"><<button "<">><<goto $prevpass>><</button>></div><div class="nav-item"><<button "Replay">><<goto $passage>><</button>> </div></div><div class="nav-wrapper"><div class="nav-item"><<button "Take me to the end">><<goto "lost">><</button>></div></div></footer>
 
@@ -634,13 +670,15 @@ Mysteries of the City</header>
 :: footerlost {"position":"100,375","size":"100,100"}
 <footer><div class="nav-wrapper "><div class="nav-item"><<button "Back">><<goto $prevpass>><</button>></div></div></footer>
 
+
 :: footerend {"position":"99,485","size":"100,100"}
 <footer>
 <div class="nav-item"><<button "Start again">><<goto "landing">><</button>></div>
 </footer>
 
-:: footerkey
-<footer><div class="nav-wrapper"><div class="nav-item"><<button "<">><<goto $prevpass>><</button>></div><div class="nav-item"><<button "Start again">><<goto "landing">><</button>></div></div><div class="nav-wrapper end"><div class="nav-item"><<button "Key">><<set $prevpass to $passage>><<goto "MC-27">><</button>> </div><div class="nav-item"><<button "Try another adventure">><<set $prevpass to $passage>><<goto "MC-28">><</button>></div></div></footer>
+
+:: footerkey {"position":"225,50","size":"100,100"}
+<footer><div class="nav-wrapper"><div class="nav-item"><<button "<">><<goto $prevpass>><</button>></div><div class="nav-item"><<button "Start again">><<goto "landing">><</button>></div></div><div class="nav-wrapper"><div class="nav-item"><<button "Show map">><<set $prevpass to $passage>><<goto "end">><</button>></div></div><div class="nav-wrapper end"><div class="nav-item"><<button "Key">><<set $prevpass to $passage>><<goto "MC-27">><</button>> </div><div class="nav-item"><<button "Try another adventure">><<set $prevpass to $passage>><<goto "MC-28">><</button>></div></div></footer>
 
 
 :: lost {"position":"450,50","size":"100,100"}
@@ -657,51 +695,71 @@ You have two options:
 
 :: landing {"position":"450,50","size":"100,100"}
 <<set $passage to "landing">><<audio ":all" stop>>
-
-<main>
+<main class="landing">
 <h2>Mysteries of the City</h2>
-
- <<button "start">><<set $prevpass to $passage>><<goto "MC-01">><</button>>
+<<link "<img src='./assets/dragon2.gif'>">><<set $prevpass to $passage>><<goto "MC-01">><</link>>
+<<button "Start">><<set $prevpass to $passage>><<goto "MC-01">><</button>>
 </main>
-<<include "footer">>
+
 
 :: end {"position":"100,625","size":"100,100"}
 <<set $passage to "end">><<set $nextpassage to "MC-26">><<audio ":all" stop>><<set $endMap = setup.generateDirectionsMap([51.51852209840634, -0.09987363281432894],[51.51668008618492, -0.0828478914446183])>>
-<main>
-End location
+<main class="end"><h2>End location</h2>
+Smithfield Market
+1 East Poultry Avenue
+EC1A9PT
+
+<<button "Next">><<set $prevpass to $passage>><<goto "MC-26">><</button>>
 
 $endMap
-  <<button "Next">><<set $prevpass to $passage>><<goto "MC-26">><</button>>
+
 </main>
-<<include "footerend">>
+<<include "footerkey">>
 
-:: MC-01 {"position":"449,226","size":"100,100"}
+
+:: MC-01 {"position":"600,175","size":"100,100"}
 <<set $passage to "MC-01">><<set $nextpassage to "MC-02A">><<audio ":all" stop>><<audio "MC_01" play>>
-<main><div id="mount"></div> 
-Felix, keeper of the Maze, and small dragon, here at your service.
+<main>
+<div id="mount"></div> 
 
-I’m opening up the City to you, a City you’ve never experienced before, and its secrets too. For the City is full of treasure. Not the kind of treasure that glitters in candlelight, but something more precious: stories, and the people who carry them. 
 
-You’re now in Dragontime. Past present and future happening all at once. Two thousand years of messy, pulsing, fiery history since the Romans first called their new home Londinium. Almost as long as I’ve been alive. 
+<<timed 2s>><<replace "#mount">>
+  Felix, keeper of the Maze, and small dragon, here at your service.
+  <</replace>>
+<</timed>>
+  <<timed 8s>><<replace "#mount">>
+  I'm opening up the City to you, a City you've never experienced before, and its secrets too. 
+  
+  For the City is full of treasure. 
+  <</replace>><</timed>>
+  <<timed 16s>><<replace "#mount">> Not the kind of treasure that glitters in candlelight, but something more precious: stories, and the people who carry them. 
+  <</replace>><</timed>>
 
-You’ve opened up door #12 into the maze of adventures. 
+<<timed 24s>><<replace "#mount">>You're now in Dragontime. Past present and future happening all at once. Two thousand years of messy, pulsing, fiery history since the Romans first called their new home Londinium. Almost as long as I've been alive. 
+ <</replace>><</timed>>
 
-You’ll be led presently through the streets of the City by a guide from one of its many pasts or possible futures.
+<<timed 38s>><<replace "#mount">>You've opened up door #12 into the maze of adventures. 
 
-If you follow them all the way along their adventure, I’ll be there to meet you near another door, opening into an amazing experience for you, hidden in one of the secret gems of the City.
+You'll be led presently through the streets of the City by a guide from one of its many pasts or possible futures.
+ <</replace>><</timed>>
 
-What kind of amazing experience? Well, it’s a surprise. Otherwise this wouldn’t be an adventure.
+<<timed 47s>><<replace "#mount">>If you follow them all the way along their adventure, I'll be there to meet you near another door, opening into an amazing experience for you, hidden in one of the secret gems of the City.
+ <</replace>><</timed>>
 
-Now are you playing this adventure solo or with a group?
+<<timed 57s>><<replace "#mount">>What kind of amazing experience? Well, it's a surprise. Otherwise this wouldn't be an adventure.
+
+Now - are you playing this adventure solo, or in a group?
  
 <div class="menu-wrapper">
   <<button "Solo">><<set $prevpass to $passage>><<goto "MC-02A">><</button>>
   
   <<button "Group">><<set $prevpass to $passage>><<goto "MC-02B">><</button>></div>
+ <</replace>><</timed>>
 </main>
-<<include "footer">>
+ <<include "footer">>
 
-:: MC-02A {"position":"448,476","size":"100,100"}
+
+:: MC-02A {"position":"725,125","size":"100,100"}
 <<set $passage to "MC-02A">><<set $nextpassage to "MC-03">>
 <<audio ":all" stop>><<audio "refergroup" play>>
 <main>
@@ -714,7 +772,8 @@ The adventure may sometimes refer to a group of people but don’t worry, you by
 </main>
 <<include "footer">>
 
-:: MC-02B {"position":"448,476","size":"100,100"}
+
+:: MC-02B {"position":"725,250","size":"100,100"}
 <<set $passage to "MC-02B">><<set $nextpassage to "MC-03">><<audio ":all" stop>><<audio "perfectgroup" play>>
 <main>
 <div id="mount"></div> 
@@ -726,7 +785,8 @@ This is perfect for a group! If you’re playing on separate devices try to pres
 </main>
 <<include "footer">>
 
-:: MC-03 {"position":"448,476","size":"100,100"}
+
+:: MC-03 {"position":"850,150","size":"100,100"}
 <<set $passage to "MC-03">><<set $nextpassage to "MC-04">>
 <<audio ":all" stop>><<audio "03" play>>
 <main>
@@ -745,7 +805,8 @@ Are you ready?
 </main>
 <<include "footer">>
 
-:: MC-04 {"position":"448,476","size":"100,100"}
+
+:: MC-04 {"position":"1000,150","size":"100,100"}
 <<set $passage to "MC-04">><<set $nextpassage to "MC-05">><<audio ":all" stop>><<audio "MC_04" play>>
 <main>
 Oh gosh, my friend Eddie is heading this way. 
@@ -753,13 +814,13 @@ He seems in a very good mood.
 I’ll connect you with Eddie in the year 1912.
 It’s bound to be interesting, for sure. 
 
-<<timed 8s>><<set $prevpass to $passage>><<goto "MC-05">><</timed>>
+<<timed 16s>><<set $prevpass to $passage>><<goto "MC-05">><</timed>>
 
 </main>
 <<include "footer">>
 
 
-:: MC-05 {"position":"450,225","size":"100,100"}
+:: MC-05 {"position":"450,175","size":"100,100"}
 <<set $passage to "MC-05">><<audio ":all" stop>><<audio "MC_05" play>><<set $nextpassage to "MC-06">>
 <main>
 <div id="mount"></div>
@@ -790,7 +851,7 @@ Fingers crossed, you have reason to visit him soon.<</type>><</replace>><</timed
 <<include "footer">>
 
 
-:: MC-06 {"position":"450,350","size":"100,100"}
+:: MC-06 {"position":"450,325","size":"100,100"}
 <<set $passage to "MC-06">><<audio ":all" stop>><<audio "MC_06" play>><<set $nextpassage to "MC-07B">>
 <main><div id="mount"></div>
   
@@ -824,7 +885,7 @@ And truth be told, I'll be glad to have a few other navvies with me, for protect
 <<include "footer">>
 
 
-:: MC-07A {"position":"350,500","size":"100,100"}
+:: MC-07A {"position":"300,475","size":"100,100"}
 <<set $passage to "MC-07A">><<audio ":all" stop>><<audio "MC_07A" play>><<set $nextpassage to "MC-07ABmap">>
 <main>
 <<type 50ms>> Never any doubt about it! 
@@ -838,7 +899,7 @@ And keep an eye out for anyone suspicious looking.
 <<include "footer">>
 
 
-:: MC-07B {"position":"550,500","size":"100,100"}
+:: MC-07B {"position":"575,475","size":"100,100"}
 <<set $passage to "MC-07B">><<audio ":all" stop>><<audio "MC_07B" play>><<set $nextpassage to "MC-07ABmap">>
 <main>
 <<type 50ms>>That’s the spirit! 
@@ -853,8 +914,9 @@ Just keep an eye out for anyone suspicious looking.
 </main>
 <<include "footer">>
 
-:: MC-07ABmap {"position":"350,500","size":"100,100"}
-<<set $passage to "MC-07ABmap">><<audio ":all" stop>><<set $map1 = setup.generateDirectionsMap([51.518378482887464, -0.09991756155550596], [51.51903417731841, -0.0997251409002828])>><<set $nextpassage to "MC-08">>
+
+:: MC-07ABmap {"position":"425,475","size":"100,100"}
+<<set $passage to "MC-07ABmap">><<audio ":all" stop>><<set $map1 = setup.generateDirectionsMap([51.518468, -0.100167], [51.518771, -0.100248])>><<set $nextpassage to "MC-08">>
 <main>
 Head up Little Britain St in the direction of Smithfield Rotunda Garden.
 The first street on your Right is Cloth Fair, turn there.
@@ -866,9 +928,7 @@ $map1
 <<include "footer">>
 
 
-
-
-:: MC-08 {"position":"450,625","size":"100,100"}
+:: MC-08 {"position":"400,625","size":"100,100"}
 <<set $passage to "MC-08">><<audio ":all" stop>><<audio "MC_08" play>><<set $nextpassage to "MC-09">>
 <main>
 <div id="mount"></div>
@@ -913,7 +973,7 @@ No point burying treasure if you don't know where to find it.<</type>><</replace
 <<include "footer">>
 
 
-:: MC-09 {"position":"450,750","size":"100,100"}
+:: MC-09 {"position":"375,750","size":"100,100"}
 <<set $passage to "MC-09">><<audio ":all" stop>><<audio "MC_09" play>><<set $nextpassage to "MC-09.5">>
 <main>
 <div id="mount"></div>
@@ -937,20 +997,21 @@ Sorry! Right as in let's get to it! And right as in, take a right when you get t
 </main>
 <<include "footer">>
 
-:: MC-09map {"position":"350,500","size":"100,100"}
-<<set $passage to "MC-10Bmap">><<audio ":all" stop>><<set $map2a = setup.generateDirectionsMap([51.51903417731841, -0.0997251409002828], [51.51916008774567, -0.09867908715347395])>><<set $nextpassage to "MC-09.5">>
+
+:: MC-09map {"position":"500,750","size":"100,100"}
+<<set $passage to "MC-10Bmap">><<audio ":all" stop>><<set $map2a = setup.generateDirectionsMap([51.518771, -0.100248], [51.519302, -0.098909])>><<set $nextpassage to "MC-09.5">>
 <main>
 Continue down Cloth Fair until you come to pub with flowers hanging.
 Take a right here on Kingshorn Street.
-Continue forward pass the two sets of bollards.
 
 <<button "We're here">><<set $prevpass to $passage>><<goto "MC-09.5">><</button>>
 
-$map1
+$map2a
 </main>
 <<include "footer">>
 
-:: MC-09.5 {"position":"450,750","size":"100,100"}
+
+:: MC-09.5 {"position":"625,750","size":"100,100"}
 <<set $passage to "MC-09.5">><<audio ":all" stop>><<audio "MC_09.5" play>><<set $nextpassage to "MC-10B">>
 <main>
 <div id="mount"></div>
@@ -972,9 +1033,7 @@ Which of these things do you think wasn't in there?
 <<include "footer">>
 
 
-
-
-:: MC-10A {"position":"370,898.3333333333334","size":"100,100"}
+:: MC-10A {"position":"375,900","size":"100,100"}
 <<set $passage to "MC-10A">><<audio ":all" stop>><<audio "MC_10A" play>><<set $nextpassage to "MC-10Bmap">>
 
 <main>
@@ -993,7 +1052,7 @@ All just there as we dug down.<</type>>
 <<include "footer">>
 
 
-:: MC-10B {"position":"550,900","size":"100,100"}
+:: MC-10B {"position":"525,900","size":"100,100"}
 <<set $passage to "MC-10B">><<audio ":all" stop>><<audio "MC_10B" play>><<set $nextpassage to "MC-10Bmap">>
 
 <main>
@@ -1019,7 +1078,7 @@ Might get as lucky as me!<</type>><</replace>><</timed>>
 Jack sent me all sorts of directions, and that on top of trying to make sure no one tries anything on!<</type>><</replace>><</timed>>    
 <<timed 83s>><<replace "#mount">><<type 50ms>>You ever get turned around in this place? 
 
-All the streets, and half streets and three quarter streets amd that?<</type>><</replace>><</timed>>    
+All the streets, and half streets and three quarter streets and that?<</type>><</replace>><</timed>>    
 <<timed 92s>><<replace "#mount">><<type 50ms>>Head's been swimming anyway with all the theories! 
 
 See, they don't know where the treasure's from! The hoard. 
@@ -1035,11 +1094,10 @@ Lots of ideas being thrown around, but no one seems to know for sure. I've heard
 </main>
 <<include "footer">>
 
-:: MC-10Bmap {"position":"350,500","size":"100,100"}
-<<set $passage to "MC-10Bmap">><<audio ":all" stop>><<set $map2a = setup.generateDirectionsMap([51.51903417731841, -0.0997251409002828], [51.51916008774567, -0.09867908715347395])>><<set $nextpassage to "MC-11">>
+
+:: MC-10Bmap {"position":"700,900","size":"100,100"}
+<<set $passage to "MC-10Bmap">><<audio ":all" stop>><<set $map2a = setup.generateDirectionsMap([51.519302, -0.098909], [51.518994, -0.098471])>><<set $nextpassage to "MC-11">>
 <main>
-Continue down Cloth Fair until you come to pub with flowers hanging.
-Take a right here on Kingshorn Street.
 Continue forward pass the two sets of bollards.
 
 <<button "We're here">><<set $prevpass to $passage>><<goto "MC-11">><</button>>
@@ -1049,8 +1107,8 @@ $map2a
 <<include "footer">>
 
 
-:: MC-11 {"position":"450,1025","size":"100,100"}
-<<set $passage to "MC-11">><<audio ":all" stop>><<audio "MC_11" play>><<set $nextpassage to "MC-12">><<set $map3 = setup.generateDirectionsMap([51.51916008774567, -0.09867908715347395], [51.5182020646166, -0.09873273132280891])>>
+:: MC-11 {"position":"400,1025","size":"100,100"}
+<<set $passage to "MC-11">><<audio ":all" stop>><<audio "MC_11" play>><<set $nextpassage to "MC-12">>
 
 <main>
 <div id="mount"></div>
@@ -1063,9 +1121,9 @@ I know there's some places further down here that will jog my memory.<</type>><<
 Names are as plain as day on the front of the buildings. Remind me their full names and I'm sure I'll remember the theories. 
 
 But if you get to number 90, you've gone too far, mind you.<</type>>
-$map3
 
-<<button "We're here">><<set $prevpass to $passage>><<goto "MC-12">><</button>><</replace>><</timed>>
+
+<<button "Ok! Let's try!">><<set $prevpass to $passage>><<goto "MC-12">><</button>><</replace>><</timed>>
 
 <<set $butchershall to false>>
 <<set $underwoodbuilding to false>>
@@ -1076,7 +1134,7 @@ $map3
 <<include "footer">>
 
 
-:: MC-12 {"position":"450,1150","size":"100,100"}
+:: MC-12 {"position":"400,1150","size":"100,100"}
 <<set $passage to "MC-12">><<audio ":all" stop>>
 <<set $nextpassage to "MC-14">><<set $buildingoptions to ["", "Spencer","Underwood","Dominion","Butchers"]>><main><div id="mount"></div>
 <<if !$butchershall>>
@@ -1256,7 +1314,7 @@ You expect stuff around here to be easily explained.
 
 Nice and neat and all that.<</type>><</replace>><</timed>>    
 <<timed 11s>><<replace "#mount">><<type 50ms>>But there can be treasure hundreds of years old and no one even knows how it got there.<</type>><</replace>><</timed>>    
-<<timed 17s>><<replace "#mount">><<type 50ms>>Right. Head down Bartholomew Close. Head towards the building that says Little Britain, then left again onto Montague Street. Keep an eye out for treasure and folks who might want ours.
+<<timed 17s>><<replace "#mount">><<type 50ms>>Right. Keep an eye out for treasure and folks who might want ours.
 
 <<button "Show map">><<set $prevpass to $passage>><<goto "MC-14map">><</button>><</type>><</replace>><</timed>> 
 
@@ -1264,8 +1322,9 @@ Nice and neat and all that.<</type>><</replace>><</timed>>
 </main>
 <<include "footer">>
 
-:: MC-14map {"position":"450,1425","size":"100,100"}
-<<set $passage to "MC-14map">><<audio ":all" stop>><<set $map4 = setup.generateDirectionsMap([51.5182020646166, -0.09873273132280891], [51.51776310301978, -0.09732993603898556])>><<set $nextpassage to "MC-15">>
+
+:: MC-14map {"position":"575,1425","size":"100,100"}
+<<set $passage to "MC-14map">><<audio ":all" stop>><<set $map4 = setup.generateDirectionsMap([51.517925, -0.098846], [51.517753, -0.097382])>><<set $nextpassage to "MC-15">>
 <main>
 Facing Butcher Hall go Left around the building and take a Left onto Little Britian Street.
 Then a left on Montague Street.
@@ -1305,6 +1364,7 @@ Anyone around here is either heading to register a new business, or listening ou
   <<set $answer15 to "business">>
   <<goto "MC-16A">>
 <</button>>
+
 <<button "We're here for gossip">>
   <<set $prevpass to $passage>>
     <<set $answer15 to "gossip">>
@@ -1337,7 +1397,7 @@ You must have a little interest in these Robert Hubert stories though.<</type>><
 
 Every time I think I've heard all there is to hear about Hubert and this strangeness, there's a new whisper down these streets.<</type>><</replace>><</timed>>    
 <<timed 50s>><<replace "#mount">><<type 50ms>>Come down Aldersgate. Look out for the blue plaque on the wall. Then the Barbican signs, then Barbican station, and you're bound to be caught up swiftly enough.<</type>>
-$map6
+
 <<button "Show map">><<set $prevpass to $passage>><<goto "MC-16ABmap">><</button>><</replace>><</timed>> 
 
 
@@ -1372,7 +1432,8 @@ Every time I think I've heard all there is to hear about Hubert and this strange
 </main>
 <<include "footer">>
 
-:: MC-16ABmap {"position":"375,1675","size":"100,100"}
+
+:: MC-16ABmap {"position":"675,1675","size":"100,100"}
 <<set $passage to "MC-16ABmap">><<audio ":all" stop>><<set $map6 = setup.generateDirectionsMap([51.51776310301978, -0.09732993603898556], [51.51992391139879, -0.09745350232498731])>><<set $nextpassage to "MC-17">>
 
 <main>
@@ -1465,7 +1526,8 @@ $map6
 </main>
 <<include "footer">>
 
-:: MC-18map {"position":"375,1675","size":"100,100"}
+
+:: MC-18map {"position":"725,1925","size":"100,100"}
 <<set $passage to "MC-18map">><<audio ":all" stop>><<set $mapb = setup.generateDirectionsMap([51.517820942613184, -0.0972550188546156], [51.51992391139879, -0.09745350232498731])>><<set $nextpassage to "MC-19">>
 
 <main>
@@ -1476,6 +1538,7 @@ $mapb
 
 </main>
 <<include "footer">>
+
 
 :: MC-19 {"position":"450,2050","size":"100,100"}
 <<set $passage to "MC-19">><<audio ":all" stop>><<audio "MC_19" play>><<set $nextpassage to "MC-20A">>
@@ -1511,7 +1574,7 @@ $mapb
 <<include "footer">>
 
 
-:: MC-20B {"position":"525,2175","size":"100,100"}
+:: MC-20B {"position":"500,2175","size":"100,100"}
 <<set $passage to "MC-20B">><<audio ":all" stop>><<audio "MC_20B" play>><<set $nextpassage to "MC-21">>
 <main>
 <div id="mount"></div>
@@ -1564,10 +1627,11 @@ So, get in some good treasure for your own hoard while you can.<</type>><</repla
 </main>
 <<include "footer">>
 
-:: MC-21map {"position":"450,2300","size":"100,100"}
+
+:: MC-21map {"position":"575,2300","size":"100,100"}
 <<set $passage to "MC-21map">><<audio ":all" stop>><<set $nextpassage to "MC-22">><<set $map8 = setup.generateDirectionsMap([51.519968982832516, -0.09761638699017938], [51.519660219997064, -0.09842104963694753])>>
 <main>
-
+Turn Left down Long Lane, left onto Cloth St then swift right into East Passage.
 $map8
 <<button "We're here">><<set $prevpass to $passage>><<goto "MC-22">><</button>>
 
@@ -1592,14 +1656,14 @@ Pulman on his ship or a jeweller off to war? Those cowards fleeing and their stu
 
 Someone burying it before fleeing the Great Fire.<</type>><</replace>><</timed>>    
 <<timed 64s>><<replace "#mount">><<type 50ms>>You haven't heard any others have you? You chew over what's the best story? I'll ask you once you've duck through the Old Red Cow and head to Smithfield Market.<</type>>
-$map8
 <<button "Show map">><<set $prevpass to $passage>><<goto "MC-22map">><</button>><</replace>><</timed>> 
 
 </main>
 <<include "footer">>
 
-:: MC-22map {"position":"450,2425","size":"100,100"}
-<<set $passage to "MC-22">><<audio ":all" stop>><<audio "MC_22" play>><<set $nextpassage to "MC-23map">><<set $map8 = setup.generateDirectionsMap([51.519660219997064, -0.09842104963694753], [51.51900096260487, -0.10104693225810368])>>
+
+:: MC-22map {"position":"575,2425","size":"100,100"}
+<<set $passage to "MC-22">><<audio ":all" stop>><<set $nextpassage to "MC-23">><<set $map8 = setup.generateDirectionsMap([51.519660219997064, -0.09842104963694753], [51.51900096260487, -0.10104693225810368])>>
 <main>
 Continue down East Passage until you can turn right back onto Long Ln.
 Take a left on Long Ln, until you come to Smithfield Market on your right.
@@ -1670,7 +1734,7 @@ Now. Jack gets a bit jumpy with folks he doesn't know yet so I'll have to leave 
 <<timed 12s>><<replace "#mount">><<type 50ms>>I've not forgotten what I said when I met you and you're smart ones to ask after payment. 
 
 So here! I'm not above sharing the treasure around a bit.<</type>><</replace>><</timed>> 
-<<timed 22s>><<replace "#mount">><<link "<img src=https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:100px'>">>
+<<timed 22s>><<replace "#mount">><<link "<img src=https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>><</replace>><</timed>>
@@ -1690,7 +1754,7 @@ So here! I'm not above sharing the treasure around a bit.<</type>><</replace>><<
 <<timed 0s>><<replace "#mount">><<type 50ms>>Well, not gonna doubt your judgment. Now, Jack gets a bit jumpy with folks he doesn't know yet so I'll have to leave you here.<</type>><</replace>><</timed>>  
 <<timed 11s>><<replace "#mount">><<type 50ms>>Look, I appreciate your help. I'm here safe and sound still with everything I came with. So here, I'm not above sharing the treasure around a bit.<</type>><</replace>><</timed>> 
 
-<<timed 21s>><<replace "#mount">> <<link "<img src='https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:100px'>">>
+<<timed 21s>><<replace "#mount">> <<link "<img src='https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>><</replace>><</timed>>
@@ -1778,14 +1842,14 @@ All the best here, I'm getting to Jack.<</type>><</replace>><</timed>>
 <<include "footer">>
 
 
-:: MC-26 {"position":"520,2113","size":"100,100"}
-<<set $passage to "MC-26">><<set $nextpassage to "MC-27">><<set $map6 = setup.generateDirectionsMap([], [])>><<audio ":all" stop>><<audio "MC_26" play>>
+:: MC-26 {"position":"450,2925","size":"100,100"}
+<<set $passage to "MC-26">><<set $nextpassage to "MC-27">><<set $map9 = setup.generateDirectionsMap([51.51900096260487, -0.10104693225810368], [51.519128, -0.102988])>><<audio ":all" stop>><<audio "MC_26" play>>
 <main>
 <div id="mount"></div>
 Awfully nice of Eddie to share that bit of treasure with you. 
 Shame it’s not possible to pass a physical object through Dragontime. 
 But I’ve got a bit of real treasure in store for you just ahead.
-
+$map9
 Head round to the other side of Smithfield Market.
 Follow the map to Number 1 East Poultry Avenue.
 When you get there, show the steward this  <<button "key">><<set $prevpass to $passage>><<goto "MC-27">><</button>> .
@@ -1794,7 +1858,7 @@ When you get there, show the steward this  <<button "key">><<set $prevpass to $p
 <<include "footer">>
 
 
-:: MC-27 {"position":"520,2113","size":"100,100"}
+:: MC-27 {"position":"450,3050","size":"100,100"}
 <<set $passage to "MC-27">><<set $nextpassage to "MC-27adventures">><<audio ":all" stop>>
 <main>
 <div class="key-wrapper glowing"><img src="./assets/SmithfieldMarket.png"></div>
@@ -1804,7 +1868,8 @@ When you get there, show the steward this  <<button "key">><<set $prevpass to $p
 </main>
 <<include "footerkey">>
 
-:: MC-28 {"position":"520,2113","size":"100,100"}
+
+:: MC-28 {"position":"450,3175","size":"100,100"}
 <<set $passage to "MC-28">><<set $nextpassage to "MC-27">>
 <<audio ":all" stop>>
 <main><h3>Start another adventure...</h3><div class="choices"><div class="adventure-wrapper"><h3>Smashing Rock Sisters </h3><div class="adv-item"><div>Family Focused
@@ -1813,11 +1878,13 @@ When you get there, show the steward this  <<button "key">><<set $prevpass to $p
 </main>
 <<include "footerkey">>
 
-:: MC-29 {"position":"520,2113","size":"100,100"}
+
+:: MC-29 {"position":"450,3300","size":"100,100"}
 <<set $passage to "MC-28">><<set $nextpassage to "MC-27">><<set $map = setup.generateDirectionsMap([51.519009356223705, -0.1010584086681624], [51.520035740841095, -0.09708782804788092])>>
 <main><h2>Smashing Rock Sisters</h2>
 $map
 
 </main>
 <<include "footerkey">>
+
 

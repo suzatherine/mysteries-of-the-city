@@ -559,7 +559,7 @@ iFrame.classList.add("map")
 iFrame.setAttribute("loading", "lazy")
 iFrame.setAttribute("referrerpolicy", "no-referrer-when-downgrade")
 // iFrame.setAttribute("allowfullscreen")
-iFrame.setAttribute("src", `https://www.google.com/maps/embed/v1/directions?key=AIzaSyBDRwRTMpSybNcmgkYVX1yZ0YmBbNhs9qU&center=${origin[0]},${origin[1]}&zoom=18&origin=${origin[0]},${origin[1]}&destination=${dest[0]},${dest[1]}&mode=walking`)
+iFrame.setAttribute("src", `https://www.google.com/maps/embed/v1/directions?key=AIzaSyCSbMwR1cUMfnIAh0Pxi0F1N16kvDGZXGU&center=${origin[0]},${origin[1]}&zoom=18&origin=${origin[0]},${origin[1]}&destination=${dest[0]},${dest[1]}&mode=walking`)
 const mount = document.getElementById("mapMount")
 // console.log(iFrame)
 return iFrame
@@ -574,7 +574,7 @@ iFrame.classList.add("map")
 iFrame.setAttribute("loading", "lazy")
 iFrame.setAttribute("referrerpolicy", "no-referrer-when-downgrade")
 // iFrame.setAttribute("allowfullscreen")
-iFrame.setAttribute("src", `https://www.google.com/maps/embed/v1/directions?key=AIzaSyBDRwRTMpSybNcmgkYVX1yZ0YmBbNhs9qU&center=${origin[0]},${origin[1]}&zoom=18&origin=${origin[0]},${origin[1]}&destination=${dest[0]},${dest[1]}&waypoints=${wayp}&mode=walking`)
+iFrame.setAttribute("src", `https://www.google.com/maps/embed/v1/directions?key=AIzaSyCSbMwR1cUMfnIAh0Pxi0F1N16kvDGZXGU&center=${origin[0]},${origin[1]}&zoom=18&origin=${origin[0]},${origin[1]}&destination=${dest[0]},${dest[1]}&waypoints=${wayp}&mode=walking`)
 const mount = document.getElementById("mapMount")
 console.log(iFrame)
 return iFrame
@@ -605,47 +605,47 @@ setup.checkForRepeats = (array,element) => {
 
 
 :: StoryInit {"position":"100,100","size":"100,100"}
-<<cacheaudio "MC_01" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_01.mp3">>
-<<cacheaudio "MC_04" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC-04.mp3">>
-<<cacheaudio "MC_05" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_05.mp3">>
-<<cacheaudio "MC_06" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_06.mp3">>
-<<cacheaudio "MC_07A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_07A.mp3">>
-<<cacheaudio "MC_07A_alt" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_07A.mp3_alt">>
-<<cacheaudio "MC_07B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_07B.mp3">>
-<<cacheaudio "MC_08" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_08.mp3">>
-<<cacheaudio "MC_09.5" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_09.5.mp3">>
-<<cacheaudio "MC_09" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_09.mp3">>
-<<cacheaudio "MC_10A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_10A.mp3">>
-<<cacheaudio "MC_10B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_10B.mp3">>
-<<cacheaudio "MC_11" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_11.mp3">>
+<<cacheaudio "MC_01" "https://www.youhavefoundconey.net/tgksnd/MC/MC_01.mp3">>
+<<cacheaudio "MC_04" "https://www.youhavefoundconey.net/tgksnd/MC/MC-04.mp3">>
+<<cacheaudio "MC_05" "https://www.youhavefoundconey.net/tgksnd/MC/MC_05.mp3">>
+<<cacheaudio "MC_06" "https://www.youhavefoundconey.net/tgksnd/MC/MC_06.mp3">>
+<<cacheaudio "MC_07A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_07A.mp3">>
+<<cacheaudio "MC_07A_alt" "https://www.youhavefoundconey.net/tgksnd/MC/MC_07A.mp3_alt">>
+<<cacheaudio "MC_07B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_07B.mp3">>
+<<cacheaudio "MC_08" "https://www.youhavefoundconey.net/tgksnd/MC/MC_08.mp3">>
+<<cacheaudio "MC_09.5" "https://www.youhavefoundconey.net/tgksnd/MC/MC_09.5.mp3">>
+<<cacheaudio "MC_09" "https://www.youhavefoundconey.net/tgksnd/MC/MC_09.mp3">>
+<<cacheaudio "MC_10A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_10A.mp3">>
+<<cacheaudio "MC_10B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_10B.mp3">>
+<<cacheaudio "MC_11" "https://www.youhavefoundconey.net/tgksnd/MC/MC_11.mp3">>
 
-<<cacheaudio "MC_13A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_13A.mp3">>
-<<cacheaudio "MC_13B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_13B.mp3">>
-<<cacheaudio "MC_13C" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_13C.mp3">>
-<<cacheaudio "MC_13D" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_13D.mp3">>
-<<cacheaudio "MC_14" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_14.mp3">>
-<<cacheaudio "MC_15" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_15.mp3">>
-<<cacheaudio "MC_16A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_16A.mp3">>
-<<cacheaudio "MC_16B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_16B.mp3">>
+<<cacheaudio "MC_13A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_13A.mp3">>
+<<cacheaudio "MC_13B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_13B.mp3">>
+<<cacheaudio "MC_13C" "https://www.youhavefoundconey.net/tgksnd/MC/MC_13C.mp3">>
+<<cacheaudio "MC_13D" "https://www.youhavefoundconey.net/tgksnd/MC/MC_13D.mp3">>
+<<cacheaudio "MC_14" "https://www.youhavefoundconey.net/tgksnd/MC/MC_14.mp3">>
+<<cacheaudio "MC_15" "https://www.youhavefoundconey.net/tgksnd/MC/MC_15.mp3">>
+<<cacheaudio "MC_16A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_16A.mp3">>
+<<cacheaudio "MC_16B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_16B.mp3">>
 
-<<cacheaudio "MC_18A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_18A.mp3">>
-<<cacheaudio "MC_18B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_18B.mp3">>
-<<cacheaudio "MC_18C" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_18C.mp3">>
-<<cacheaudio "MC_19" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_19.mp3">>
-<<cacheaudio "MC_20A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_20A.mp3">>
-<<cacheaudio "MC_20B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_20B.mp3">>
-<<cacheaudio "MC_21" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_21.mp3">>
-<<cacheaudio "MC_22" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_22.mp3">>
-<<cacheaudio "MC_23" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_23.mp3">>
+<<cacheaudio "MC_18A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_18A.mp3">>
+<<cacheaudio "MC_18B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_18B.mp3">>
+<<cacheaudio "MC_18C" "https://www.youhavefoundconey.net/tgksnd/MC/MC_18C.mp3">>
+<<cacheaudio "MC_19" "https://www.youhavefoundconey.net/tgksnd/MC/MC_19.mp3">>
+<<cacheaudio "MC_20A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_20A.mp3">>
+<<cacheaudio "MC_20B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_20B.mp3">>
+<<cacheaudio "MC_21" "https://www.youhavefoundconey.net/tgksnd/MC/MC_21.mp3">>
+<<cacheaudio "MC_22" "https://www.youhavefoundconey.net/tgksnd/MC/MC_22.mp3">>
+<<cacheaudio "MC_23" "https://www.youhavefoundconey.net/tgksnd/MC/MC_23.mp3">>
 
-<<cacheaudio "MC_24A" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_24A.mp3">>
-<<cacheaudio "MC_24B" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_24B.mp3">>
-<<cacheaudio "MC_25" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_25.mp3">>
-<<cacheaudio "MC_26" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC_26.mp3">>
-<<cacheaudio "MC_26" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/MC-26.mp3">>
-<<cacheaudio "refergroup" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/XX_02_refergroup.mp3">>
-<<cacheaudio "perfectgroup" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/XX_02_perfectgroup.mp3">>
-<<cacheaudio "03" "https://magic.fra1.cdn.digitaloceanspaces.com/tgksnd/MC/XX_03.mp3">>
+<<cacheaudio "MC_24A" "https://www.youhavefoundconey.net/tgksnd/MC/MC_24A.mp3">>
+<<cacheaudio "MC_24B" "https://www.youhavefoundconey.net/tgksnd/MC/MC_24B.mp3">>
+<<cacheaudio "MC_25" "https://www.youhavefoundconey.net/tgksnd/MC/MC_25.mp3">>
+<<cacheaudio "MC_26" "https://www.youhavefoundconey.net/tgksnd/MC/MC_26.mp3">>
+<<cacheaudio "MC_26" "https://www.youhavefoundconey.net/tgksnd/MC/MC-26.mp3">>
+<<cacheaudio "refergroup" "https://www.youhavefoundconey.net/tgksnd/MC/XX_02_refergroup.mp3">>
+<<cacheaudio "perfectgroup" "https://www.youhavefoundconey.net/tgksnd/MC/XX_02_perfectgroup.mp3">>
+<<cacheaudio "03" "https://www.youhavefoundconey.net/tgksnd/MC/XX_03.mp3">>
 <<waitforaudio>>
 
 
@@ -1326,7 +1326,7 @@ Nice and neat and all that.<</type>><</replace>><</timed>>
 :: MC-14map {"position":"575,1425","size":"100,100"}
 <<set $passage to "MC-14map">><<audio ":all" stop>><<set $map4 = setup.generateDirectionsMap([51.517925, -0.098846], [51.517753, -0.097382])>><<set $nextpassage to "MC-15">>
 <main>
-Facing Butcher Hall go Left around the building and take a Left onto Little Britian Street.
+Facing Butcher Hall go Left around the building and take a Left onto Little Britain Street.
 Then a left on Montague Street.
 You’ll find yourself at a roundabout.
 
@@ -1474,8 +1474,9 @@ $map6
           <</replace>>	
           <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18A">><</timed>>
           <<else>>
-          <<replace ".housefeedback">><p class="wrong">Not quite, try again!</p><</replace>>
-          <<timed 2.5s>><<replace ".housefeedback">><</replace>><</timed>>
+          <<replace ".housefeedback">><p class="wrong">Not quite. It was London House.  </p><</replace>>
+           <<set $houseanswered to true>>
+          <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18A">><</timed>>
         <</if>>
     <</button>>  
   </div>
@@ -1495,8 +1496,9 @@ $map6
           <</replace>>	
           <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18B">><</timed>>
            <<else>>
-          <<replace ".symbolfeedback">><p class="wrong">Not quite, try again!</p><</replace>>
-          <<timed 2.5s>><<replace ".symbolfeedback">><</replace>><</timed>>
+          <<replace ".symbolfeedback">><p class="wrong">Not quite, It was a tower.   </p><</replace>>
+           <<set $symbolanswered to true>>
+           <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18B">><</timed>>
         <</if>>
     <</button>>
   </div>
@@ -1515,9 +1517,9 @@ $map6
           <</replace>>	
           <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18C">><</timed>>
            <<else>>
-          <<replace ".crestfeedback">><p class="wrong">Not quite, try again!</p><</replace>>
-          <<timed 5s>><<replace ".crestfeedback">> <</replace>><</timed>>
-           <<timed 2.5s>><<replace ".crestfeedback">><</replace>><</timed>>
+          <<replace ".crestfeedback">><p class="wrong">Not quite, it was St. George's Flag !</p><</replace>>
+           <<set $crestanswered to true>>
+            <<timed 2s>><<set $prevpass to $passage>><<goto "MC-18C">><</timed>>
         <</if>>
     <</button>>
   </div>
@@ -1734,7 +1736,7 @@ Now. Jack gets a bit jumpy with folks he doesn't know yet so I'll have to leave 
 <<timed 12s>><<replace "#mount">><<type 50ms>>I've not forgotten what I said when I met you and you're smart ones to ask after payment. 
 
 So here! I'm not above sharing the treasure around a bit.<</type>><</replace>><</timed>> 
-<<timed 22s>><<replace "#mount">><<link "<img src=https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
+<<timed 22s>><<replace "#mount">><<link "<img src=https://www.youhavefoundconey.net/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>><</replace>><</timed>>
@@ -1754,7 +1756,7 @@ So here! I'm not above sharing the treasure around a bit.<</type>><</replace>><<
 <<timed 0s>><<replace "#mount">><<type 50ms>>Well, not gonna doubt your judgment. Now, Jack gets a bit jumpy with folks he doesn't know yet so I'll have to leave you here.<</type>><</replace>><</timed>>  
 <<timed 11s>><<replace "#mount">><<type 50ms>>Look, I appreciate your help. I'm here safe and sound still with everything I came with. So here, I'm not above sharing the treasure around a bit.<</type>><</replace>><</timed>> 
 
-<<timed 21s>><<replace "#mount">> <<link "<img src='https://magic.fra1.cdn.digitaloceanspaces.com/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
+<<timed 21s>><<replace "#mount">> <<link "<img src='https://www.youhavefoundconey.net/tgkmaze/mysteries/assets/pearl.png' style='width:300px'>">>
   <<set $prevpass to $passage>>
   <<goto "MC-25">>
 <</link>><</replace>><</timed>>
